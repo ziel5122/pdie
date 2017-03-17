@@ -1,4 +1,3 @@
-<<<<<<< 4257fd1ee39c71dbef3a9b26c24276576778c9d9
 # Logs
 logs
 *.log
@@ -57,23 +56,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-=======
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
->>>>>>> started basic buildable react project (Hello World from React website)
