@@ -1,3 +1,4 @@
+npm install
 NODE_ENV=production webpack -p --display-error-details
 rm -rf build
 mkdir build

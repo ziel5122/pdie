@@ -1,7 +1,7 @@
 # Build/Deployment
 build
-static
 pdie.zip
+public/bundle.js
 
 # AWS Credentials
 json/credentials.json
