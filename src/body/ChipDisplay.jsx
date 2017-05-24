@@ -4,6 +4,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+import deleteLabel from '../data/actions/label-actions';
+
 import './ChipDisplay.css';
 
 injectTapEventPlugin();
@@ -19,12 +21,12 @@ const stylesDelete = {
   backgroundColor: '#ff6666',
 };
 
-const ChipDisplay = ({ deleteLabel, previewLabels }) => {
+const ChipDisplay = ({ dispatch, previewLabels }) => {
   const chips = previewLabels.map(label => (
     <Chip
       className="chip"
       key={label.label}
-      onTouchTap={() => deleteLabel(label.label)}
+      onTouchTap={() => dispatch(deleteLabel(label.label))}
       style={label.delete ? stylesDelete : styles}
     >
       {label.label}
@@ -39,20 +41,15 @@ const ChipDisplay = ({ deleteLabel, previewLabels }) => {
 };
 
 ChipDisplay.propTypes = {
-  deleteLabel: PropTypes.func.isRequired,
-  previewLabels: PropTypes.arrayOf(PropTypes.object).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  previewLabels: PropTypes.arrayOf(PropTypes.shape({
+    Name: PropTypes.string,
+    Confidence: PropTypes.number,
+  })).isRequired,
 };
 
 const ChipDisplayRedux = connect(
   state => ({ previewLabels: state.previewLabels }),
-  dispatch => ({
-    deleteLabel: (label) => {
-      dispatch({
-        label,
-        type: 'TOGGLE_DELETE',
-      });
-    },
-  }),
 )(ChipDisplay);
 
 export default ChipDisplayRedux;

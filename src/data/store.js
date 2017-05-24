@@ -17,12 +17,6 @@ const image = (state = {
 }, action) => {
   switch (action.type) {
     case 'SET_IMAGE_HEIGHT': {
-      console.log(action.height);
-      const props = {
-        ...state,
-        height: action.height,
-      };
-      console.log(props);
       return {
         ...state,
         height: action.height,
@@ -30,12 +24,6 @@ const image = (state = {
     }
 
     case 'SET_IMAGE_WIDTH': {
-      console.log(action.width);
-      const props = {
-        width: action.width,
-        ...state,
-      };
-      console.log(props);
       return {
         ...state,
         width: action.width,

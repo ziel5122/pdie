@@ -18,7 +18,6 @@ const urlReader = new FileReader();
 let fileObj = {};
 
 const UpperBody = ({
-  canUpload,
   clearSearch,
   previewImageUrl,
   searchOpen,
@@ -49,8 +48,6 @@ const UpperBody = ({
   const img = document.getElementById('preview-img');
   if (img) {
     img.onload = () => {
-      console.log(img.width, img.height);
-      console.log(canUpload);
       setImageWidth(img.width);
       setImageHeight(img.height);
     };
@@ -61,7 +58,6 @@ const UpperBody = ({
     setUpload(false);
     const file = e.target.files[0];
     fileObj = file;
-    console.log(fileObj);
     setFileName(file);
 
     byteReader.onloadend = () => {
@@ -161,7 +157,6 @@ const UpperBody = ({
 };
 
 UpperBody.propTypes = {
-  canUpload: PropTypes.bool.isRequired,
   clearSearch: PropTypes.func.isRequired,
   previewImageUrl: PropTypes.string.isRequired,
   searchOpen: PropTypes.bool.isRequired,
