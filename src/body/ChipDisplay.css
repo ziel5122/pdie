@@ -1,0 +1,8 @@
+.chip-display {
+  height: 20vh;
+  max-height: 40vh;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 5px;
+  vertical-align: center;
+}

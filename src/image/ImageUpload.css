@@ -1,0 +1,72 @@
+.fileInput {
+  border-bottom: 2px
+  solid gray;
+  border-right: 2px solid grey;
+  border-top: 2px solid grey;
+  border-left: 2px solid grey;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  margin-bottom:10px;
+
+}
+
+.imgPreview{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+  max-width:350px;
+  max-height:450px;
+  width: auto;
+  height: auto;
+  border-left: 2px solid lightgray;
+  border-right: 2px solid lightgray;
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+  margin-bottom:20px;
+}
+
+.previewText {
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.submitButton {
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 8pt;
+  cursor: pointer;
+  margin-bottom:20px;
+}
+
+&:hover{
+  background: #efefef
+}
+
+.previewComponent {
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.imgUrl{
+  display: block;
+  max-width:350px;
+  max-height:450px;
+  width: auto;
+  height: auto;
+}
+
+.tagPreview{
+  margin-right: auto;
+  margin-left: auto;
+  padding: 5px;
+  max-width:400px;
+  max-height:250px;
+  width: auto;
+  height: auto;
+  margin-bottom:20px;
+}

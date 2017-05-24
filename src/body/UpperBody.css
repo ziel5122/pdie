@@ -1,0 +1,67 @@
+.body-upper {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.body-upper-left {
+  border-color: #2a5880;
+  border-width: 5px;
+  border-style: solid;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 28px;
+  margin-right: 1vw;
+  padding: 5px;
+  vertical-align: top;
+}
+
+.body-upper-right {
+  display: inline-block;
+  margin-left: 1vw;
+  text-align: left;
+  max-width: 30vw;
+  vertical-align: middle;
+}
+
+.body-upper-spacer {
+  display: inline-block;
+  min-width: 5vw;
+  text-align: left;
+  vertical-align: top;
+}
+
+.buttons {
+  display: inline-block;
+  min-width: 72px;
+}
+
+.chip-div {
+  vertical-align: middle;
+}
+
+#preview-img {
+  max-height: 40vh;
+  max-width: 50vw;
+}
+
+#preview-text {
+  display: none;
+}
+
+#preview-upload {
+  display: none;
+  opacity: 1;
+  position: absolute;
+  z-index: -1;
+}
+
+.search {
+  display: block;
+  height: 48px;
+  max-height: 48px;
+}
+
+#upload-label {
+  cursor: pointer;
+}
