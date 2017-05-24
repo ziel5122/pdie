@@ -32,7 +32,10 @@ const image = (state = {
 
 const images = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_IMAGE':
+    case 'APPEND_IMAGE':
+      return [...state, action.image];
+
+    case 'PREPEND_IMAGE':
       return [action.image, ...state];
 
     case 'SET_IMAGES':

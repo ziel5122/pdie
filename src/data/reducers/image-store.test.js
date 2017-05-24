@@ -4,7 +4,7 @@ import { image, images, previewImageUrl } from './image-store';
 
 describe('image-store test suite', () => {
   describe('image reducer tests', () => {
-    test('image reducer updates name without mutating state', () => {
+    test('update file name without mutating state', () => {
       const beforeImage = {
         name: '',
       };
@@ -20,7 +20,7 @@ describe('image-store test suite', () => {
       })).toEqual(afterImage);
     });
 
-    test('image reducer updates height without mutating state', () => {
+    test('update height without mutating state', () => {
       const beforeImage = {
         height: 0,
       };
@@ -36,7 +36,7 @@ describe('image-store test suite', () => {
       })).toEqual(afterImage);
     });
 
-    test('image reducer updates width without mutating state', () => {
+    test('update width without mutating state', () => {
       const beforeImage = {
         width: 0,
       };
@@ -50,6 +50,55 @@ describe('image-store test suite', () => {
         width: 123,
         type: 'SET_IMAGE_WIDTH',
       })).toEqual(afterImage);
+    });
+  });
+
+  describe('images reducer tests', () => {
+    const beforeImages = [
+      { name: 'image1' },
+      { name: 'image2' },
+    ];
+
+    test('append image without mutating state', () => {
+      const afterImages = [
+        { name: 'image1' },
+        { name: 'image2' },
+        { name: 'image3' },
+      ];
+
+      deepFreeze(beforeImages);
+
+      expect(images(beforeImages, {
+        image: { name: 'image3' },
+        type: 'APPEND_IMAGE',
+      })).toEqual(afterImages);
+    });
+
+    test('prepend image without mutating state', () => {
+      const afterImages = [
+        { name: 'image3' },
+        { name: 'image1' },
+        { name: 'image2' },
+      ];
+
+      deepFreeze(beforeImages);
+
+      expect(images(beforeImages, {
+        image: { name: 'image3' },
+        type: 'PREPEND_IMAGE',
+      })).toEqual(afterImages);
+    });
+
+    test('set images without mutating state', () => {
+      const afterImages = beforeImages;
+      const beforeImages = [];
+
+      deepFreeze(beforeImages);
+
+      expect(images(beforeImages, {
+        images: afterImages,
+        type: 'SET_IMAGES',
+      })).toEqual(afterImages);
     });
   });
 });
