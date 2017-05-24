@@ -1,5 +1,15 @@
+# Build/Deployment
+build
+pdie.zip
+public/*bundle.js
+public/*bundle.js.map
+
 # AWS Credentials
 json/credentials.json
+
+# GCP Credentials
+storage-credentials.json
+vision-credentials.json
 
 # Logs
 logs

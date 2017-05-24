@@ -20,7 +20,14 @@ const Body = ({ images }) => (
 );
 
 Body.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  images: PropTypes.arrayOf(PropTypes.shape({
+    src: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
+    thumbnail: PropTypes.string,
+    thumbnailWidth: PropTypes.number,
+    thumbnailHeight: PropTypes.number,
+  })).isRequired,
 };
 
 const BodyRedux = connect(

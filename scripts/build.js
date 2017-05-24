@@ -1,45 +1,40 @@
-'use strict';
+import { cyan, green, red, yellow } from 'chalk';
+import dotenv from 'dotenv';
 
-// Do this as the first thing so that any code reading it knows the right env.
+import { clientDevConfig } from '../webpack.config';
+
 process.env.NODE_ENV = 'production';
 
-// Load environment variables from .env file. Suppress warnings using silent
-// if this file is missing. dotenv will never modify any environment variables
-// that have already been set.
-// https://github.com/motdotla/dotenv
-require('dotenv').config({silent: true});
+dotenv.config();
 
-var chalk = require('chalk');
 var fs = require('fs-extra');
 var path = require('path');
 var url = require('url');
 var webpack = require('webpack');
-var config = require('../config/webpack.config.prod');
 var paths = require('../config/paths');
 var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 var FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 var measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 var printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 
-var useYarn = fs.existsSync(paths.yarnLockFile);
+const compiler = webpack(clientDevConfig);
+compiler.run((err, stats) => {
+  if (!err) console.log('success');
+});
 
-// Warn and crash if required files are missing
-if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
-  process.exit(1);
-}
-
+/*
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.
 measureFileSizesBeforeBuild(paths.appBuild).then(previousFileSizes => {
   // Remove all content but keep the directory so that
   // if you're in it, you don't end up in Trash
-  fs.emptyDirSync(paths.appBuild);
+  // fs.emptyDirSync(paths.appBuild);
 
   // Start the webpack build
   build(previousFileSizes);
 
   // Merge with the public folder
-  copyPublicFolder();
+  // copyPublicFolder();
 });
 
 // Print out errors
@@ -156,3 +151,4 @@ function copyPublicFolder() {
     filter: file => file !== paths.appHtml
   });
 }
+*/

@@ -1,3 +1,4 @@
+/* eslint react/forbid-prop-types: "warn" */
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import ContentClear from 'material-ui/svg-icons/content/clear';
@@ -18,9 +19,9 @@ const urlReader = new FileReader();
 let fileObj = {};
 
 const UpperBody = ({
-  canUpload,
   clearSearch,
   previewImageUrl,
+  searchIndex,
   searchOpen,
   searchQuery,
   setFileName,
@@ -49,8 +50,6 @@ const UpperBody = ({
   const img = document.getElementById('preview-img');
   if (img) {
     img.onload = () => {
-      console.log(img.width, img.height);
-      console.log(canUpload);
       setImageWidth(img.width);
       setImageHeight(img.height);
     };
@@ -61,7 +60,6 @@ const UpperBody = ({
     setUpload(false);
     const file = e.target.files[0];
     fileObj = file;
-    console.log(fileObj);
     setFileName(file);
 
     byteReader.onloadend = () => {
@@ -85,7 +83,9 @@ const UpperBody = ({
       if (!searchQuery) {
         setSearchOpen(false);
       } else {
-        console.log(searchQuery);
+        const searchQuery2 = searchQuery.replace(/[[:punct:]]/g, ' ');
+        const tokens = searchQuery2.split(' ');
+        console.log(searchIndex[tokens[0]]);
       }
     } else {
       setSearchOpen(true);
@@ -95,7 +95,7 @@ const UpperBody = ({
   const searchStyle = {
     display: searchOpen ? 'inline-block' : 'none',
     marginLeft: '4px',
-    marginRight: 'e4px',
+    marginRight: '4px',
     verticalAlign: 'top',
     whiteSpace: 'nowrap',
   };
@@ -107,8 +107,6 @@ const UpperBody = ({
   const textStyle2 = {
     display: 'block',
   };
-
-  // console.log(searchQuery);
 
   return (
     <div className="body-upper">
@@ -137,6 +135,7 @@ const UpperBody = ({
       <div className="body-upper-right">
         <div className="search">
           <TextField
+            hintText="search"
             style={searchStyle}
             onChange={e => setQuery(e.target.value)}
             value={searchQuery}
@@ -161,9 +160,9 @@ const UpperBody = ({
 };
 
 UpperBody.propTypes = {
-  canUpload: PropTypes.bool.isRequired,
   clearSearch: PropTypes.func.isRequired,
   previewImageUrl: PropTypes.string.isRequired,
+  searchIndex: PropTypes.object.isRequired,
   searchOpen: PropTypes.bool.isRequired,
   searchQuery: PropTypes.string.isRequired,
   setFileName: PropTypes.func.isRequired,
@@ -180,6 +179,7 @@ const UpperBodyRedux = connect(
   state => ({
     canUpload: state.canUpload,
     previewImageUrl: state.previewImageUrl,
+    searchIndex: state.searchIndex,
     searchOpen: state.searchOpen,
     searchQuery: state.searchQuery,
   }),

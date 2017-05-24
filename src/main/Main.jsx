@@ -4,8 +4,7 @@ import { Provider } from 'react-redux';
 import Body from '../body/Body';
 import configureStore from '../data/configureStore';
 import Header from '../header/Header';
-// import ImageUpload from '../image/ImageUpload';
-import logo from '../../public/panafold.jpg';
+import logo from '../../img/panafold.jpg';
 
 import './Main.css';
 

@@ -20,7 +20,9 @@ function getClientEnvironment(publicUrl) {
       // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
       // This should only be used as an escape hatch. Normally you would put
       // images into the `src` and `import` them in code to get their paths.
-      'PUBLIC_URL': publicUrl
+      'PUBLIC_URL': publicUrl,
+      'AWS_ACCESS_KEY_ID': 'AKIAI2ZQ6DTDRTESJDTA',
+      'AWS_SECRET_ACCESS_KEY': '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'
     });
   // Stringify all values so we can feed into Webpack DefinePlugin
   var stringified = {
