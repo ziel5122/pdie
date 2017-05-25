@@ -1,39 +1,25 @@
-import DBC from './aws/dbcontroller.js';
+import dbc from './aws/dbcontroller';
 
-var algoliasearch = require('algoliasearch');
-var _ = require('lodash');
-var async = require('async');
+const index = {};
 
-const loadCred = require('./json/algoliaKeys.json');
-
-var access = loadCred.appID;
-var secret = loadCred.adminKey;
-var client = algoliasearch(access, secret);
-var index = client.initIndex('img_NAME');
-var AWS = require("aws-sdk");
-
- AWS.config.update({ region:"us-west-1" });
-
-var docClient = new AWS.DynamoDB.DocumentClient();
-
-DBC.scan({TableName: "Images"}, function (err, data) {
-  var results = JSON.stringify(data,null,1);
-  var obj = JSON.parse(results);
-  var dataItems = data['Items'];
-  var indices = Object.keys(data['Items']);
-  var listJSON = [];
-
-  if (err) { console.log (err); }
-
-  for(var i = 0; i < Object.keys(data['Items']).length; i++) {
-    data['Items'][i].objectID = i;
-  }
-
-  indices.forEach(function(entry){
-    console.log(data['Items']);
-    index.addObject(dataItems[entry], function(err, content) {
-      if (err) { console.error(err); }
+const buildIndex = (TableName = 'Images', callback) => {
+  dbc.scan({ TableName }, (err, data) => {
+    data.Items.forEach((item) => {
+      const { BucketKey, Labels } = item;
+      Labels.forEach(({ Name }) => {
+        if (Name) {
+          const lowerName = Name.toLowerCase();
+          if (index[lowerName]) {
+            index[lowerName].push(BucketKey);
+          } else {
+            index[lowerName] = [BucketKey];
+          }
+        }
+      });
     });
-    listJSON.push(dataItems[entry]);
+
+    callback(index);
   });
-});
+};
+
+export default buildIndex;

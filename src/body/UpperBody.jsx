@@ -1,3 +1,4 @@
+/* eslint react/forbid-prop-types: "warn" */
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import ContentClear from 'material-ui/svg-icons/content/clear';
@@ -20,6 +21,7 @@ let fileObj = {};
 const UpperBody = ({
   clearSearch,
   previewImageUrl,
+  searchIndex,
   searchOpen,
   searchQuery,
   setFileName,
@@ -81,7 +83,9 @@ const UpperBody = ({
       if (!searchQuery) {
         setSearchOpen(false);
       } else {
-        console.log(searchQuery);
+        const searchQuery2 = searchQuery.replace(/[[:punct:]]/g, ' ');
+        const tokens = searchQuery2.split(' ');
+        console.log(searchIndex[tokens[0]]);
       }
     } else {
       setSearchOpen(true);
@@ -103,8 +107,6 @@ const UpperBody = ({
   const textStyle2 = {
     display: 'block',
   };
-
-  // console.log(searchQuery);
 
   return (
     <div className="body-upper">
@@ -133,6 +135,7 @@ const UpperBody = ({
       <div className="body-upper-right">
         <div className="search">
           <TextField
+            hintText="search"
             style={searchStyle}
             onChange={e => setQuery(e.target.value)}
             value={searchQuery}
@@ -159,6 +162,7 @@ const UpperBody = ({
 UpperBody.propTypes = {
   clearSearch: PropTypes.func.isRequired,
   previewImageUrl: PropTypes.string.isRequired,
+  searchIndex: PropTypes.object.isRequired,
   searchOpen: PropTypes.bool.isRequired,
   searchQuery: PropTypes.string.isRequired,
   setFileName: PropTypes.func.isRequired,
@@ -175,6 +179,7 @@ const UpperBodyRedux = connect(
   state => ({
     canUpload: state.canUpload,
     previewImageUrl: state.previewImageUrl,
+    searchIndex: state.searchIndex,
     searchOpen: state.searchOpen,
     searchQuery: state.searchQuery,
   }),

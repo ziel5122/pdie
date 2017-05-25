@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addImage } from '../data/actions/image-actions';
+import { prependImage } from '../data/actions/image-actions';
 import { store, upload } from '../image/support/core';
 
 import './UploadButton.css';
@@ -23,7 +23,7 @@ const UploadButton = ({ canUpload, dispatch, image, file, previewLabels }) => (
         .catch(err => console.error(err));
       });
       const src = `https://s3-us-west-2.amazonaws.com/testing-uswest2/${name}`;
-      dispatch(addImage({
+      dispatch(prependImage({
         src,
         width,
         height,
@@ -42,10 +42,14 @@ UploadButton.propTypes = {
   dispatch: PropTypes.func.isRequired,
   image: PropTypes.shape({
     name: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number,
+  }).isRequired,
+  file: PropTypes.shape({
+    name: PropTypes.string,
     size: PropTypes.number,
     type: PropTypes.string,
   }).isRequired,
-  file: PropTypes.instanceOf('File').isRequired,
   previewLabels: PropTypes.arrayOf(PropTypes.shape({
     Name: PropTypes.string,
     Confidence: PropTypes.number,

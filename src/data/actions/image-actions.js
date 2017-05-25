@@ -1,6 +1,6 @@
-const addImage = image => ({
+const prependImage = image => ({
   image,
-  type: 'ADD_IMAGE',
+  type: 'PREPEND_IMAGE',
 });
 
 const setImages = images => ({
@@ -8,4 +8,4 @@ const setImages = images => ({
   type: 'SET_IMAGES',
 });
 
-export { addImage, setImages };
+export { prependImage, setImages };
