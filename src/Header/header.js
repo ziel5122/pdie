@@ -13,9 +13,7 @@ const Header = ({ logo }) => {
     <div style={styles.header}>
       <HeaderLeft style={styles.headerLeft} />
       <HeaderCenter style={styles.headerCenter} />
-      <div style={styles.headerRight}>
-        {'HeaderRight'}
-      </div>
+      <HeaderRight style={styles.headerRight} />
     </div>
   );
 };

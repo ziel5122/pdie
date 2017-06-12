@@ -56,6 +56,7 @@ const txt = {
   fontSize: '24px',
   display: 'inline-block',
   maxHeight: '24px',
+  marginBottom: '6px',
 };
 
 const txtImage = {

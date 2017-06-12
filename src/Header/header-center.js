@@ -11,7 +11,12 @@ import styles from './styles';
 
 const HeaderCenter = ({ style }) => (
     <div style={style}>
-      <ImageAddToPhotos />
+      <ImageAddToPhotos style={{
+          color: 'darkgray',
+          height: '24px',
+          width: 'auto',
+        }}
+      />
       <TextField
         id="search"
         style={{
@@ -19,8 +24,21 @@ const HeaderCenter = ({ style }) => (
         }}
         value={'searchQuery'}
       />
-      <ActionSearch style={style} />
-      <ContentClear style={style} />
+      <ActionSearch style={{
+          color: 'gray',
+          height: '24px',
+          marginLeft: '8px',
+          width: 'auto',
+        }}
+      />
+      <ContentClear style={{
+          color: 'gray',
+          display: 'none',
+          height: '36px',
+          marginLeft: '-4px',
+          width: 'auto',
+        }}
+      />
     </div>
 );
 
