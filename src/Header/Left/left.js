@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './styles';
 
-const Left = ({ logo, style, text }) => (
+const Left = ({ icon, style, text }) => (
   <div style={style}>
-    <img src={logo} style={styles.logo} alt="logo" />
+    <img src={icon} style={styles.logo} alt="logo" />
     {text()}
   </div>
 );

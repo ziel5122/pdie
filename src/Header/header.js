@@ -8,21 +8,19 @@ import Right from './Right';
 
 import styles from './styles';
 
-const Header = ({ leftLogo, rightLogo, text }) => {
-  return (
-    <div style={styles.header}>
-      <Left
-        logo={leftLogo}
-        style={styles.headerLeft}
-        text={text}
-      />
-      <Center style={styles.headerCenter} />
-      <Right
-        logo={rightLogo}
-        style={styles.headerRight}
-      />
-    </div>
-  );
-};
+const Header = ({ actions, icons: { left, right }, text }) => (
+  <div style={styles.header}>
+    <Left
+      icon={left}
+      style={styles.headerLeft}
+      text={text}
+    />
+    {actions()}
+    <Right
+      icon={right}
+      style={styles.headerRight}
+    />
+  </div>
+);
 
 export default Header;
