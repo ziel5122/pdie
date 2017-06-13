@@ -1,7 +1,7 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 
-import App from './_app';
+import App from './app';
 
 export default () => (
   <MuiThemeProvider>

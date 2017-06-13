@@ -4,12 +4,9 @@ import ImageAddToPhotos from 'material-ui/svg-icons/image/add-to-photos';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 
-import ImageUpload from '../ImageUpload';
-import Search from '../Search';
-
 import styles from './styles';
 
-const HeaderCenter = ({ style }) => (
+const Center = ({ style }) => (
     <div style={style}>
       <ImageAddToPhotos style={{
           color: 'darkgray',
@@ -42,4 +39,4 @@ const HeaderCenter = ({ style }) => (
     </div>
 );
 
-export default HeaderCenter;
+export default Center;

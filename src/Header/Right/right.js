@@ -1,8 +1,8 @@
 import React from 'react';
 
-import githubLogo from '../../img/GitHub-Mark-32px.png';
+import githubLogo from '../../../img/GitHub-Mark-32px.png';
 
-const HeaderRight = ({ style }) => (
+const Right = ({ style }) => (
   <div style={style} >
     <img src={githubLogo} style={{
         height: '24px',
@@ -13,4 +13,4 @@ const HeaderRight = ({ style }) => (
   </div>
 );
 
-export default HeaderRight;
+export default Right;
