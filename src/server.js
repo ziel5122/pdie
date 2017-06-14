@@ -10,7 +10,7 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 */
 // import { serverDevConfig } from '../webpack.config';
 import configureStore from './store/configureStore';
-import App from './app';
+import App from './App';
 
 const app = Express();
 const env = process.env.NODE_ENV || 'production';

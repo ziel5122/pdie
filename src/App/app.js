@@ -22,24 +22,8 @@ const Actions = () => (
   </div>
 );
 
-const HeaderText = () => (
-  <div style={styles.headerText}>
-    <span style={styles.textImage}>image</span>
-    <span style={styles.textNgine}>ngine</span>
-  </div>
-);
-
 const App = () => (
-  <div>
-    <Header
-      actions={Actions}
-      icons={{
-        left: panafoldLogo,
-        right: githubLogo,
-      }}
-      text={HeaderText}
-    />
-  </div>
+  <Header />
 );
 
 export default App;

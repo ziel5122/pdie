@@ -16,7 +16,7 @@ const imageUpload = {
 
 const header = {
   backgroundColor: 'white',
-  minHeight: '40px',
+  height: '40px',
   display: 'flex',
   display: '-webkit-flex', /* Safari */
   alignItems: 'center',
@@ -52,30 +52,10 @@ const imgPanafold = {
   height: '24px',
 };
 
-const txt = {
-  fontSize: '24px',
-  display: 'inline-block',
-  maxHeight: '24px',
-  marginBottom: '6px',
-};
-
-const txtImage = {
-  ...txt,
-  color: 'darkgray',
-  marginLeft: '8px',
-};
-
-const txtNgine = {
-  ...txt,
-  color: 'gray',
-};
-
 export default {
   header,
   headerCenter,
   headerLeft,
   headerRight,
   imgPanafold,
-  txtImage,
-  txtNgine,
 };

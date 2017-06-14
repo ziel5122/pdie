@@ -2,13 +2,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Main from './main/Main';
-import './index.css';
+import App from './App';
 
 const MainMui = () => (
-  <MuiThemeProvider>
-    <Main />
-  </MuiThemeProvider>
+  <Provider store={window.__PRELOADED_STATE__}>
+    <MuiThemeProvider>
+      <App />
+    </MuiThemeProvider>
+  </Provider>
 );
 
 ReactDOM.render(
