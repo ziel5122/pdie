@@ -9,20 +9,45 @@ const IMG_DIR = path.resolve(__dirname, 'img');
 
 dotenv.config();
 
-const config = {
-  module: {
-    loaders: [
-      {
-        test: /\.png$/,
-        loader: 'url-loader?limit=8192!file-loader',
-        query: {
-          name: '[name].[hash].[ext]',
-        },
-      },
-    ]
+const devJsLoader = {
+  test: /\.js$/,
+  loaders: [
+    'babel-loader',
+  ],
+  include: APP_DIR,
+};
+
+const prodJsLoader = {
+  ...devJsLoader,
+  loaders: [
+    ...devJsLoader.loaders,
+    'eslint-loader',
+  ],
+}
+
+const loaders = [
+  {
+    test: /\.png$/,
+    loader: 'url-loader?limit=8192!file-loader',
+    query: {
+      name: '[name].[hash].[ext]',
+    },
   },
+];
+
+const devLoaders = [
+  ...loaders,
+  devJsLoader,
+];
+
+const prodLoaders = [
+  ...loaders,
+  prodJsLoader,
+];
+
+const config = {
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js']
   },
 }
 
@@ -30,16 +55,7 @@ const devConfig = {
   ...config,
   devtool: 'eval',
   module: {
-    loaders: [
-      {
-        test: /\.(js|jsx)$/,
-        loaders: [
-          'babel-loader',
-        ],
-        include: APP_DIR,
-      },
-      ...config.module.loaders,
-    ],
+    loaders: devLoaders,
   },
 };
 
@@ -47,22 +63,12 @@ const prodConfig = {
   ...config,
   devtool: 'source-map',
   module: {
-    loaders: [
-      {
-        test: /\.(js|jsx)$/,
-        loaders: [
-          'babel-loader',
-          'eslint-loader',
-        ],
-        include: APP_DIR,
-      },
-      ...config.module.loaders,
-    ],
+    loaders: prodLoaders,
   },
 };
 
 const clientConfig = {
-  entry: APP_DIR + '/index.jsx',
+  entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
     filename: 'client-bundle.js'
