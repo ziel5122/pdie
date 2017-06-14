@@ -4,10 +4,8 @@ import TextField from 'material-ui/TextField';
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import githubLogo from '../../img/GitHub-Mark-32px.png';
 import Header from '../Header';
 import ImageButton from '../buttons/Image';
-import panafoldLogo from '../../img/panafold.png';
 
 import styles from './styles';
 

@@ -4,17 +4,13 @@ import clearConsole from 'react-dev-utils/clearConsole';
 import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
 import webpack from 'webpack';
 
-import { devConfig } from '../webpack.config';
+import { clientDevConfig } from '../webpack.config';
 
 dotenv.config();
 
 process.env.NODE_ENV = 'development';
 
-const PORT = process.env.PORT || 3000;
-
-console.log(process.env.REACT_APP_PORT);
-
-const compiler = webpack(devConfig);
+const compiler = webpack(clientDevConfig);
 
 // bundle is invalidated on change
 compiler.plugin('invalid', () => {
@@ -22,24 +18,14 @@ compiler.plugin('invalid', () => {
   console.log('Compiling...');
 });
 
-compiler.watch({
-  aggregateTimeout: 300,
-  poll: true,
-}, (err, status) => {
+compiler.watch(null, (err, stats) => {
   clearConsole();
 
   const messages = formatWebpackMessages(status.toJson({}, true));
   const isSuccessful = !messages.errors.length && !messages.warnings.length;
 
   if (isSuccessful) {
-    console.log(green('Compiled successfully!'));
-    console.log();
-    console.log('The app is running at:');
-    console.log();
-    console.log(`  ${cyan(`${protocol}://${host}:${port}/`)}`);
-    console.log();
-    console.log('Note that the development build is not optimized.');
-    console.log(`To create a production build, use ${cyan(`${cli} run build`)}.`);
+    console.log(green('Client compiled successfully!'));
     console.log();
   }
 
