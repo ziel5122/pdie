@@ -1,9 +1,6 @@
-NODE_ENV=production webpack -p --display-error-details
-rm -rf build
-mkdir build
+npm install
+rm -rf build/*
+babel-node scripts/build.js
 cp -r public build/public
 babel src/server.js -d build
 cp package.json build
-rm pdie.zip
-cd build
-zip -r ../pdie.zip *

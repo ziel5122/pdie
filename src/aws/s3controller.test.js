@@ -5,11 +5,6 @@ import path from 'path';
 import { s3Config } from './aws-config';
 import s3 from './s3controller';
 
-/*
-    Tests the s3controller module. "pdie-unit-test" bucket is cleared before
-    each test run
-*/
-
 AWS.config = s3Config;
 const s3ForTest = new AWS.S3();
 

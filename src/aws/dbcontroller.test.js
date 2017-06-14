@@ -4,11 +4,6 @@ import path from 'path';
 import { dbConfig } from './aws-config';
 import dbc from './dbcontroller';
 
-/*
-    Tests for the dbcontroller module. "test" table is cleared and repopulated
-    each time the tests are run.
-*/
-
 const jsonPath = path.join(__dirname, '../../json');
 const prepath = path.join(jsonPath, 'pre');
 const testPath = path.join(jsonPath, 'test');

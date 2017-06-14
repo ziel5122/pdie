@@ -84,7 +84,6 @@ function submit(file, labels, width, height, callback) {
   const imgPrefix = `https://s3-${region}.amazonaws.com/${Bucket}/`;
 
   upload(file)
-    // .then(() => label(Key))
     .then(() => store(Key, labels, width, height))
     .then(() => callback({ src: `${imgPrefix}${Key}`, width, height, labels }))
     .catch(err => console.error(err));
