@@ -8,7 +8,7 @@ const App = () => {
     <div>
       <h1>App Page</h1>
       <h2>This is the main page</h2>
-      <p>{`This component was rendered on the ${renderLocation}`}</p>
+      <p>{`This component was rendered on the face`}</p>
     </div>
   );
 };

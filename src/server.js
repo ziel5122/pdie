@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-const appHtml = renderToString(<App />);
+const appHtml = renderToString(<h1>Server</h1>);
 
 const html = `
 <!doctype html>
@@ -20,7 +20,7 @@ const html = `
   </head>
   <body>
     <div id="root">${appHtml}</div>
-    <script src="./client-bundle.js" type="text/babel"></script>
+    <script src="client-bundle.js" type="text/babel"></script>
   </body>
 </html>
 `

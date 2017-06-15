@@ -1,12 +1,27 @@
-var path = require('path');
+require('babel-register');
 
-var APP_DIR = path.join(__dirname, 'src/');
+const { join, resolve } = require('path');
+const {
+  HotModuleReplacementPlugin,
+  NoEmitOnErrorsPlugin,
+  NamedModulesPlugin,
+} = require('webpack');
 
-module.exports = {
-  entry: APP_DIR + 'index.js',
+const APP_DIR = join(__dirname, 'src');
+
+const config = {
+  devtool: 'cheap-eval-source-map',
+  context: APP_DIR,
+  entry: {
+    home: [
+      'webpack-hot-middleware/client',
+      './index.js'
+    ]
+  },
   output: {
-    path: APP_DIR,
-    filename: 'client-bundle.js',
+    path: resolve(__dirname,'public/static'),
+    filename: 'bundle.js',
+    publicPath: '/static/'
   },
   resolve: {
     extensions: ['.js'],
@@ -22,4 +37,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HotModuleReplacementPlugin(),
+    new NoEmitOnErrorsPlugin(),
+    new NamedModulesPlugin(),
+  ],
 };
+
+module.exports = config;
