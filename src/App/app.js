@@ -1,27 +1,16 @@
-import ActionSearch from 'material-ui/svg-icons/action/search';
-import ContentClear from 'material-ui/svg-icons/content/clear';
-import TextField from 'material-ui/TextField';
 import React from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Header from '../Header';
-import ImageButton from '../buttons/Image';
+const App = () => {
+  const renderLocation = process.env.RENDER_LOCATION;
+  console.log(renderLocation);
 
-import styles from './styles';
-
-injectTapEventPlugin();
-
-const Actions = () => (
-  <div style={styles.actions}>
-    <ImageButton />
-    <TextField id="search" />
-    <ActionSearch />
-    <ContentClear />
-  </div>
-);
-
-const App = () => (
-  <Header />
-);
+  return (
+    <div>
+      <h1>App Page</h1>
+      <h2>This is the main page</h2>
+      <p>{`This component was rendered on the ${renderLocation}`}</p>
+    </div>
+  );
+};
 
 export default App;

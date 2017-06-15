@@ -1,18 +1,9 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import App from './App';
 
-const MainMui = () => (
-  <Provider store={window.__PRELOADED_STATE__}>
-    <MuiThemeProvider>
-      <App />
-    </MuiThemeProvider>
-  </Provider>
-);
+process.env.RENDER_LOCATION = 'client';
+console.log(process.env.RENDER_LOCATION);
 
-ReactDOM.render(
-  <MainMui />,
-  document.getElementById('root'),
-);
+render(<h1>Hello</h1>, document.getElementById('root'));
