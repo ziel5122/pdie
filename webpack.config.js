@@ -2,9 +2,8 @@ require('babel-register');
 
 const { join, resolve } = require('path');
 const {
+  DefinePlugin,
   HotModuleReplacementPlugin,
-  NoEmitOnErrorsPlugin,
-  NamedModulesPlugin,
 } = require('webpack');
 
 const APP_DIR = join(__dirname, 'src');
@@ -12,15 +11,13 @@ const APP_DIR = join(__dirname, 'src');
 const config = {
   devtool: 'cheap-eval-source-map',
   context: APP_DIR,
-  entry: {
-    home: [
-      'webpack-hot-middleware/client',
-      './index.js'
-    ]
-  },
+  entry: [
+    'webpack-hot-middleware/client',
+    './index.js',
+  ],
   output: {
-    path: resolve(__dirname,'public/static'),
-    filename: 'bundle.js',
+    path: resolve(__dirname,'src'),
+    filename: 'bundle2.js',
     publicPath: '/static/'
   },
   resolve: {
@@ -39,8 +36,10 @@ const config = {
   },
   plugins: [
     new HotModuleReplacementPlugin(),
-    new NoEmitOnErrorsPlugin(),
-    new NamedModulesPlugin(),
+    //new NoErrorsPlugin(),
+    new DefinePlugin({
+      'process.env.RENDER_LOCATION': 'client',
+    }),
   ],
 };
 

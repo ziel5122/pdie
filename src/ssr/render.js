@@ -1,18 +1,18 @@
-const renderFullPage = (html) => (
+const renderHtml = (html) => (
   `<!DOCTYPE html>
   <html>
     <head>
-      <title>Redux Hello World</title>
+      <title>imagengine</title>
     </head>
     <body>
       <div id="root">${html}</div>
       <script src="/static/vendor.js" type="text/babel"></script>
-      <script src="/static/bundle.js"></script>
+      <script src="/static/bundle2.js"></script>
     </body>
   </html>`
 );
 
-export { renderFullPage };
+export { renderHtml };
 
 /*
 <script>

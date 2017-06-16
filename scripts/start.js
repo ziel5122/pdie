@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -7,10 +8,11 @@ import hotMiddleware from 'webpack-hot-middleware';
 
 import App from '../src/App';
 import config from '../webpack.config.js';
-import { renderFullPage } from '../src/ssr/render';
+import { renderHtml } from '../src/ssr/render';
+
+dotenv.config();
 
 const compiler = webpack(config);
-
 const devMiddlewareConfig = {
   noInfo: true,
   stats: {colors: true},
@@ -23,10 +25,10 @@ app.use(hotMiddleware(compiler));
 
 const html = renderToString(<App />);
 app.get('*', (req, res) => {
-  res.send(renderFullPage(html));
+  res.send(renderHtml(html));
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, function(error) {
   if (error) {
     console.error(error)

@@ -4,12 +4,13 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 
 import App from './App';
+import { devMiddleware } from '../dev/webpack-server';
 
 dotenv.config();
 
-const app = express();
+const app = process.env.NODE_ENV === 'production' ? express() : devMiddleware();
 
-const appHtml = renderToString(<h1>Server</h1>);
+const appHtml = renderToString(<App />);
 
 const html = `
 <!doctype html>
@@ -20,7 +21,7 @@ const html = `
   </head>
   <body>
     <div id="root">${appHtml}</div>
-    <script src="client-bundle.js" type="text/babel"></script>
+    <script src="/static/bundle2.js" type="text/babel"></script>
   </body>
 </html>
 `
