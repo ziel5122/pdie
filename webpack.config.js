@@ -1,6 +1,7 @@
 require('babel-register');
 
 const { join, resolve } = require('path');
+const { v4 } = require('uuid');
 const {
   DefinePlugin,
   HotModuleReplacementPlugin,
@@ -17,8 +18,8 @@ const config = {
   ],
   output: {
     path: resolve(__dirname,'src'),
-    filename: 'bundle2.js',
-    publicPath: '/static/'
+    filename: 'client-bundle2.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js'],

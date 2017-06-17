@@ -5,9 +5,10 @@
   "main": "src/index.js",
   "scripts": {
     "build:client": "webpack -d --display-error-details",
-    "dev:client": "babel-node src/server.js",
+    "dev": "NODE_ENV=development babel-node src/server.js",
     "server": "babel-node src/server.js",
-    "start": "NODE_ENV=production babel-node src/server.js",
+    "start": "node server-bundle.js",
+    "start:server": "babel-node src/server.js",
     "test": "jest"
   },
   "repository": {
@@ -25,7 +26,9 @@
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

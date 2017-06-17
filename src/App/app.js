@@ -1,18 +1,30 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-let count = 0;
+import getStyles from './styles'
 
-const App = () => {
-  const renderLocation = process.env.RENDER_LOCATION || 'client';
+let count = 1;
+
+const App = ({ renderLocation }) => {
+  const styles = getStyles(renderLocation);
+  console.log(count++);
   console.log(renderLocation);
 
   return (
     <div>
       <h1>App Page</h1>
       <h2>This is the main page</h2>
-      <p>{`This component was rendered on the ${renderLocation}`}</p>
+      <p>
+        <span>{'This HTML was rendered on the '}</span>
+        <span style={styles.server} id="server">{'server '}</span>
+        <span style={styles.client} id="client">{'client.'}</span>
+      </p>
     </div>
   );
+};
+
+App.propTypes = {
+  renderLocation: PropTypes.string.isRequired,
 };
 
 export default App;
