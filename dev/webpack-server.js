@@ -18,8 +18,6 @@ const devMiddleware = () => {
   app.use(middleware(compiler, middlewareConfig));
   app.use(hotReplacement(compiler));
 
-  console.log(process.env.RENDER_LOCATION);
-
   return app;
 };
 

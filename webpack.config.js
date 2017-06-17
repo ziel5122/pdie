@@ -37,9 +37,6 @@ const config = {
   plugins: [
     new HotModuleReplacementPlugin(),
     //new NoErrorsPlugin(),
-    new DefinePlugin({
-      'process.env.RENDER_LOCATION': 'client',
-    }),
   ],
 };
 

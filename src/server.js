@@ -2,13 +2,27 @@ import dotenv from 'dotenv';
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+import webpack from 'webpack';
+import middleware from 'webpack-dev-middleware';
+import hotReplacement from 'webpack-hot-middleware';
 
 import App from './App';
-import { devMiddleware } from '../dev/webpack-server';
+import config from '../webpack.config';
+import { renderHtml } from './ssr/render';
 
 dotenv.config();
 
-const app = process.env.NODE_ENV === 'production' ? express() : devMiddleware();
+const middlewareConfig = {
+  noInfo: true,
+  stats: {colors: true},
+  publicPath: config.output.publicPath
+};
+
+const app = express();
+const compiler = webpack(config);
+
+app.use(middleware(compiler, middlewareConfig));
+app.use(hotReplacement(compiler));
 
 const appHtml = renderToString(<App />);
 
@@ -21,10 +35,10 @@ const html = `
   </head>
   <body>
     <div id="root">${appHtml}</div>
-    <script src="/static/bundle2.js" type="text/babel"></script>
+    <script src="/static/bundle2.js"></script>
   </body>
 </html>
-`
+`;
 
 app.get('*', (req, res) => {
   res.send(html);

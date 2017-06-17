@@ -1,5 +1,7 @@
 import React from 'react';
 
+let count = 0;
+
 const App = () => {
   const renderLocation = process.env.RENDER_LOCATION || 'client';
   console.log(renderLocation);
