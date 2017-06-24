@@ -6,9 +6,8 @@ import getStyles from './styles'
 let count = 1;
 
 const App = ({ renderLocation }) => {
-  const styles = getStyles(renderLocation);
-  console.log(count++);
-  console.log(renderLocation);
+  console.log(`App renderLocation: ${renderLocation}`);
+  const styles = getStyles({renderLocation});
 
   return (
     <div>
@@ -25,6 +24,10 @@ const App = ({ renderLocation }) => {
 
 App.propTypes = {
   renderLocation: PropTypes.string.isRequired,
+};
+
+App.defaultProps = {
+  renderLocation: 'server',
 };
 
 export default App;
