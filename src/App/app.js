@@ -1,9 +1,8 @@
+import Paper from 'material-ui/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import getStyles from './styles'
-
-let count = 1;
+import getStyles from './styles';
 
 const App = ({ renderLocation }) => {
   console.log(`App renderLocation: ${renderLocation}`);
@@ -11,13 +10,14 @@ const App = ({ renderLocation }) => {
 
   return (
     <div>
-      <h1>App Page</h1>
-      <h2>This is the main page</h2>
       <p>
         <span>{'This HTML was rendered on the '}</span>
         <span style={styles.server} id="server">{'server '}</span>
         <span style={styles.client} id="client">{'client.'}</span>
       </p>
+      <Paper>
+        {'A header will go here'}
+      </Paper>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -11,10 +13,19 @@ delete window.__PRELOADED_STATE;
 
 const store = createStore(reducers, preloadedState);
 
+console.log(`client userAgent: ${global.navigator.userAgent}`);
+
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <MuiThemeProvider muiTheme={
+      getMuiTheme({
+        userAgent: global.navigator.userAgent,
+      })
+    }
+  >
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

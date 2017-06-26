@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
@@ -31,15 +33,24 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const store = createStore(reducers);
-const appHtml = renderToString(
-  <Provider store={store}>
-    <App />
-  </Provider>
-);
 
-const html = `
-<!doctype html>
-<html>
+app.get('*', (req, res) => {
+  const appHtml = renderToString(
+    <MuiThemeProvider muiTheme={
+        getMuiTheme({
+          userAgent: req.headers['user-agent'],
+        })
+      }
+    >
+
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MuiThemeProvider>
+  );
+
+  const html = `
+<!doctype html><html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,7 +67,8 @@ const html = `
 </html>
 `;
 
-app.get('*', (req, res) => {
+  console.log(`server userAgent: ${req.headers['user-agent']}`);
+
   res.send(html);
 });
 
