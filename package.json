@@ -29,6 +29,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.0"
   },
   "devDependencies": {
@@ -38,7 +39,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
+    "file-loader": "^0.11.2",
     "jest": "^20.0.4",
+    "url-loader": "^0.5.9",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-hot-middleware": "^2.18.0"

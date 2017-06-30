@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import getStyles from './styles';
+import Header from '../Header/header';
 
 const App = ({ renderLocation }) => {
   console.log(`App renderLocation: ${renderLocation}`);
@@ -16,7 +17,7 @@ const App = ({ renderLocation }) => {
         <span style={styles.client} id="client">{'client.'}</span>
       </p>
       <Paper>
-        {'A header will go here'}
+        <Header />
       </Paper>
     </div>
   );

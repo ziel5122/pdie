@@ -1,16 +1,20 @@
-const renderHtml = (html) => (
-  `<!DOCTYPE html>
-  <html>
-    <head>
-      <title>imagengine</title>
-    </head>
-    <body>
-      <div id="root">${html}</div>
-      <script src="/static/vendor.js" type="text/babel"></script>
-      <script src="/static/bundle2.js"></script>
-    </body>
-  </html>`
-);
+const renderHtml = (appHtml, store) => (`
+<!doctype html><html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="root">${appHtml}</div>
+    <script src="client-bundle2.js"></script>
+    <script>
+      // WARNING: See the following for security issues around embedding JSON in HTML:
+      // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
+      window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState()).replace(/</g, '\\u003c')}
+    </script>
+  </body>
+</html>
+`);
 
 export { renderHtml };
 

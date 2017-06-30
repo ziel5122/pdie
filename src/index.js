@@ -13,15 +13,12 @@ delete window.__PRELOADED_STATE;
 
 const store = createStore(reducers, preloadedState);
 
-console.log(`client userAgent: ${global.navigator.userAgent}`);
+const muiTheme = getMuiTheme({
+  userAgent: 'all',
+});
 
 render(
-  <MuiThemeProvider muiTheme={
-      getMuiTheme({
-        userAgent: global.navigator.userAgent,
-      })
-    }
-  >
+  <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
       <App />
     </Provider>
@@ -33,5 +30,3 @@ store.dispatch({
   renderLocation: 'client',
   type: 'SET_RENDER_LOCATION',
 });
-
-console.log(store.getState());

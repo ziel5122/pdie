@@ -33,6 +33,11 @@ const config = {
           'babel-loader',
         ],
       },
+      {
+        exclude: join(__dirname, 'node_modules'),
+        test: /\.png$/,
+        loader: 'url-loader',
+      },
     ],
   },
   plugins: [
