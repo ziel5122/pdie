@@ -38,13 +38,13 @@ const muiTheme = getMuiTheme({
   userAgent: 'all',
 });
 
-const appHtml = renderToString(
+const appHtml = process.env.SSR ? renderToString(
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
       <App />
     </Provider>
   </MuiThemeProvider>
-);
+) : '';
 
 const html = renderHtml(appHtml, store);
 //const html = renderHtml('', store);

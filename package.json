@@ -6,6 +6,7 @@
   "scripts": {
     "build:client": "webpack -d --display-error-details",
     "dev": "NODE_ENV=development babel-node src/server.js",
+    "dev:ssr": "NODE_ENV=development SSR=true babel-node src/server.js",
     "server": "babel-node src/server.js",
     "start": "node server-bundle.js",
     "start:server": "babel-node src/server.js",
