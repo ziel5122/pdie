@@ -4,7 +4,27 @@ const styles = {
     verticalAlign: 'top',
   },
   header: {
+    display: 'flex',
     height: '40px',
+  },
+  headerCenter: {
+    display: 'inline-block',
+    flex: 1,
+    marginTop: '8px',
+    marginBottom: '8px',
+    textAlign: 'center',
+  },
+  headerLeft: {
+    display: 'inline-block',
+    flex: 1,
+    textAlign: 'left',
+  },
+  headerRight: {
+    display: 'inline-block',
+    flex: 1,
+    margin: '8px',
+    marginLeft: '0px',
+    textAlign: 'right',
   },
   image: {
     color: 'darkgray',
