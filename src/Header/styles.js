@@ -1,29 +1,36 @@
+const header_ = {
+  flex: 1,
+  marginBottom: '8px',
+  marginTop: '8px',
+  verticalAlign: 'top',
+};
+
+const headerLeft_ = {
+  marginLeft: '8px',
+};
+
+const headerRight_ = {
+  marginRight: '8px',
+};
+
 const styles = {
-  actions: {
-    display: 'inline-block',
-    verticalAlign: 'top',
-  },
   header: {
     display: 'flex',
     height: '40px',
   },
+  github: {
+    ...headerRight_,
+    fontSize: '21px',
+  },
   headerCenter: {
-    display: 'inline-block',
-    flex: 1,
-    marginTop: '8px',
-    marginBottom: '8px',
+    ...header_,
     textAlign: 'center',
   },
   headerLeft: {
-    display: 'inline-block',
-    flex: 1,
-    textAlign: 'left',
+    ...header_,
   },
   headerRight: {
-    display: 'inline-block',
-    flex: 1,
-    margin: '8px',
-    marginLeft: '0px',
+    ...header_,
     textAlign: 'right',
   },
   image: {
@@ -35,15 +42,13 @@ const styles = {
     fontSize: '21px',
   },
   title: {
+    ...headerLeft_,
     display: 'inline-block',
-    margin: '8px',
-    marginRight: 0,
     verticalAlign: 'top',
   },
   panafold: {
+    ...headerLeft_,
     height: '24px',
-    margin: '8px',
-    marginRight: 0,
     width: 'auto',
   },
 };

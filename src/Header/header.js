@@ -29,11 +29,15 @@ const Header = () => (
         <ImageAddToPhotos />
         <ActionSearch />
         <ContentClear />
-        <TextField />
+        <TextField
+          style={{
+            // display: 'none',
+          }}
+          />
       </div>
     </div>
     <div style={styles.headerRight}>
-      <a style={styles.actions} href="http://www.github.com/ziel5122/pdie">
+      <a style={styles.github} href="http://www.github.com/ziel5122/pdie">
         {`GitHub`}
       </a>
     </div>
