@@ -1,3 +1,4 @@
+import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageAddToPhotos from 'material-ui/svg-icons/image/add-to-photos';
@@ -6,7 +7,7 @@ import React from 'react';
 
 import styles from './styles';
 
-const Header = () => (
+const Header = ({ searchOpen, toggleSearch, uploadOpen }) => (
   <div style={styles.header}>
     <div style={styles.headerLeft}>
       <a href="http://panafold.co">
@@ -27,11 +28,18 @@ const Header = () => (
     <div style={styles.headerCenter}>
       <div style={styles.actions}>
         <ImageAddToPhotos />
-        <ActionSearch />
+        <IconButton
+          onTouchTap={() => {
+            toggleSearch()
+          }}
+          >
+          <ActionSearch />
+        </IconButton>
+        {searchOpen}
         <ContentClear />
         <TextField
           style={{
-            // display: 'none',
+            display: searchOpen ? 'inline-block' : 'none',
           }}
           />
       </div>

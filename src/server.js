@@ -47,7 +47,6 @@ const appHtml = process.env.SSR ? renderToString(
 ) : '';
 
 const html = renderHtml(appHtml, store);
-//const html = renderHtml('', store);
 
 app.get('*', (req, res) => {
   res.send(html);
