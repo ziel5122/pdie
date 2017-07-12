@@ -11,7 +11,12 @@ const mapStateToProps = ({ searchOpen, uploadOpen }) => ({
 const mapDispatchToProps = (dispatch) => ({
   toggleSearch: () => {
     dispatch({
-      type: 'OPEN_SEARCH',
+      type: 'TOGGLE_SEARCH',
     });
   },
 });
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Header);

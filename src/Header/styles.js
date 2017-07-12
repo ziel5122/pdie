@@ -5,10 +5,6 @@ const header_ = {
   verticalAlign: 'top',
 };
 
-const headerLeft_ = {
-  marginLeft: '8px',
-};
-
 const headerRight_ = {
   marginRight: '8px',
 };
@@ -27,29 +23,14 @@ const styles = {
     textAlign: 'center',
   },
   headerLeft: {
-    ...header_,
+    flex: 1,
+    marginBottom: '8px',
+    marginTop: '8px',
+    verticalAlign: 'top',
   },
   headerRight: {
     ...header_,
     textAlign: 'right',
-  },
-  image: {
-    color: 'darkgray',
-    fontSize: '21px',
-  },
-  ngine: {
-    color: 'gray',
-    fontSize: '21px',
-  },
-  title: {
-    ...headerLeft_,
-    display: 'inline-block',
-    verticalAlign: 'top',
-  },
-  panafold: {
-    ...headerLeft_,
-    height: '24px',
-    width: 'auto',
   },
 };
 

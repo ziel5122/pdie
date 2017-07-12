@@ -2,11 +2,8 @@ import { combineReducers } from 'redux';
 
 const searchOpen = (state = false, action) => {
   switch (action.type) {
-    case 'CLOSE_SEARCH':
-      return false;
-
-    case 'OPEN_SEARCH':
-      return true;
+    case 'TOGGLE_SEARCH':
+      return !state;
 
     case 'OPEN_UPLOAD':
       return false;
@@ -32,7 +29,7 @@ const uploadOpen = (state = false, action) => {
   }
 };
 
-export default combineReducers({
+export {
   searchOpen,
   uploadOpen,
-});
+};

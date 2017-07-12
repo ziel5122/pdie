@@ -6,38 +6,25 @@ import TextField from 'material-ui/TextField';
 import React from 'react';
 
 import styles from './styles';
+import Left from './Left';
 
 const Header = ({ searchOpen, toggleSearch, uploadOpen }) => (
   <div style={styles.header}>
-    <div style={styles.headerLeft}>
-      <a href="http://panafold.co">
-        <img
-          alt="panafold"
-          onClick={() => {
-            window.location.href = 'https://panafold.co/';
-          }}
-          src="https://firebasestorage.googleapis.com/v0/b/pdie-image-storage.appspot.com/o/img%2Fpanafold.png?alt=media&token=1a7043c7-c4b3-498f-852c-71ee37341da4"
-          style={styles.panafold}
-        />
-      </a>
-      <div style={styles.title}>
-        <span style={styles.image}>image</span>
-        <span style={styles.ngine}>ngine</span>
-      </div>
-    </div>
+    <Left style={styles.headerLeft} />
     <div style={styles.headerCenter}>
       <div style={styles.actions}>
         <ImageAddToPhotos />
         <IconButton
           onTouchTap={() => {
-            toggleSearch()
+            toggleSearch();
           }}
           >
           <ActionSearch />
         </IconButton>
-        {searchOpen}
+        {searchOpen === true ? 'cat' : 'dog'}
         <ContentClear />
         <TextField
+          id="search"
           style={{
             display: searchOpen ? 'inline-block' : 'none',
           }}

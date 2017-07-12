@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import getStyles from './styles';
-import Header from '../Header/header';
+import Header from '../Header';
 
 const App = ({ renderLocation }) => {
   console.log(`App renderLocation: ${renderLocation}`);
