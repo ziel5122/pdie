@@ -7,7 +7,7 @@ import React from 'react';
 
 import styles from './styles';
 
-const HeaderCenter = ({ searchOpen, style }) => (
+const HeaderCenter = ({ searchOpen, style, toggleSearch }) => (
   <div style={style}>
     <div style={styles.actions}>
       <ImageAddToPhotos />
@@ -15,10 +15,10 @@ const HeaderCenter = ({ searchOpen, style }) => (
         onTouchTap={() => {
           toggleSearch();
         }}
+        style={styles.actions}
       >
         <ActionSearch />
       </IconButton>
-      {searchOpen === true ? 'cat' : 'dog'}
       <ContentClear />
       <TextField
         id="search"

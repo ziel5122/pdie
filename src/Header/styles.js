@@ -1,5 +1,5 @@
 const header_ = {
-  flex: 1,
+  height: '24px',
   marginBottom: '8px',
   marginTop: '8px',
   verticalAlign: 'top',
@@ -20,16 +20,18 @@ const styles = {
   },
   headerCenter: {
     ...header_,
+    flex: 2,
     textAlign: 'center',
   },
   headerLeft: {
-    flex: 1,
     marginBottom: '8px',
     marginTop: '8px',
     verticalAlign: 'top',
+    width: '150px',
   },
   headerRight: {
     ...header_,
+    flex: 1,
     textAlign: 'right',
   },
 };
