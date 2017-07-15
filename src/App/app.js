@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import getStyles from './styles';
-import Header from '../Header';
+import Body from '../Body/body';
+import Gallery from '../Gallery/gallery';
+import Header from '../Header/header';
 
 const App = ({ renderLocation }) => {
   console.log(`App renderLocation: ${renderLocation}`);
@@ -16,9 +18,20 @@ const App = ({ renderLocation }) => {
         <span style={styles.server} id="server">{'server '}</span>
         <span style={styles.client} id="client">{'client.'}</span>
       </p>
-      <Paper>
+      <Paper zDepth={0}>
         <Header />
       </Paper>
+      <Paper>
+        <Body
+          style={{
+            ...styles.body,
+            display: 'none',
+          }}
+        />
+      </Paper>
+      <Gallery
+        style={styles.gallery}
+      />
     </div>
   );
 };

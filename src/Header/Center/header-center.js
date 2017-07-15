@@ -7,23 +7,36 @@ import React from 'react';
 
 import styles from './styles';
 
-const HeaderCenter = ({ searchOpen, style, toggleSearch }) => (
+const HeaderCenter = ({
+  imageOpen,
+  ngineOpen,
+  style,
+  toggleImage,
+  toggleNgine
+}) => (
   <div style={style}>
     <div style={styles.actions}>
-      <ImageAddToPhotos />
-      <IconButton
+      <ImageAddToPhotos
         onTouchTap={() => {
-          toggleSearch();
+          toggleImage();
         }}
-        style={styles.actions}
-      >
-        <ActionSearch />
-      </IconButton>
+      />
+      <ActionSearch
+        onTouchTap={() => {
+          toggleNgine();
+        }}
+        style={{
+          ...styles.actions,
+          backgroundColor: 'red',
+          cursor: 'pointer',
+          cursor: 'hand',
+        }}
+      />
       <ContentClear />
       <TextField
         id="search"
         style={{
-          display: searchOpen ? 'inline-block' : 'none',
+          display: ngineOpen ? 'inline-block' : 'none',
         }}
         />
     </div>

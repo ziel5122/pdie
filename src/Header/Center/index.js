@@ -3,15 +3,20 @@ import { connect } from 'react-redux';
 
 import HeaderCenter from './header-center';
 
-const mapStateToProps = ({ searchOpen, uploadOpen }) => ({
-  searchOpen,
-  uploadOpen,
+const mapStateToProps = ({ headerActions: { imageOpen, ngineOpen} }) => ({
+  imageOpen: (typeof imageOpen === 'undefined') && true,
+  ngineOpen: ngineOpen || true,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleSearch() {
+  toggleImage() {
     dispatch({
-      type: 'TOGGLE_SEARCH',
+      type: 'TOGGLE_IMAGE',
+    });
+  },
+  toggleNgine() {
+    dispatch({
+      type: 'TOGGLE_NGINE',
     });
   },
 });

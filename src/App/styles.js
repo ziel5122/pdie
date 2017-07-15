@@ -6,8 +6,18 @@ const styles = ({ renderLocation }) => {
   const serverColor = renderLocation === server ? 'black' : 'darkgray';
 
   return {
+    body: {
+      marginTop: '16px',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+    },
     client: {
       color: clientColor,
+    },
+    gallery: {
+      marginTop: '24px',
+      marginLeft: '0px',
+      padding: '0px',
     },
     server: {
       color: serverColor,
