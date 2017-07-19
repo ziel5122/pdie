@@ -1,7 +1,7 @@
 const header_ = {
   height: '24px',
   marginBottom: '8px',
-  marginTop: '8px',
+  marginTop: '0px',
   verticalAlign: 'top',
 };
 

@@ -16,11 +16,32 @@ const HeaderCenter = ({
 }) => (
   <div style={style}>
     <div style={styles.actions}>
-      <ImageAddToPhotos
-        onTouchTap={() => {
-          toggleImage();
-        }}
-      />
+      <div style={{
+          ...styles.imageWrapper,
+          background: imageOpen ? 'darkgray' : 'white',
+          height: imageOpen ? '56px' : '40px',
+      }}>
+        <ImageAddToPhotos
+          onTouchTap={() => {
+            toggleImage();
+          }}
+          style={imageOpen ? {
+            background: 'darkgray',
+            color: 'white',
+            cursor: 'pointer',
+            cursor: 'hand',
+            display: 'inline-block',
+            marginTop: '8px',
+          } : {
+            background: 'white',
+            color: 'darkgray',
+            cursor: 'pointer',
+            cursor: 'hand',
+            display: 'inline-block',
+            marginTop: '8px',
+          }}
+        />
+      </div>
       <ActionSearch
         onTouchTap={() => {
           toggleNgine();

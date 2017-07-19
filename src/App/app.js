@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import getStyles from './styles';
-import Body from '../Body/body';
+import Body from '../Body';
 import Gallery from '../Gallery/gallery';
 import Header from '../Header/header';
 
@@ -12,7 +12,7 @@ const App = ({ renderLocation }) => {
   const styles = getStyles({renderLocation});
 
   return (
-    <div>
+    <div style={{background: 'lightblue'}}>
       <p>
         <span>{'This HTML was rendered on the '}</span>
         <span style={styles.server} id="server">{'server '}</span>
@@ -25,7 +25,6 @@ const App = ({ renderLocation }) => {
         <Body
           style={{
             ...styles.body,
-            display: 'none',
           }}
         />
       </Paper>

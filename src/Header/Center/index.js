@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import HeaderCenter from './header-center';
 
 const mapStateToProps = ({ headerActions: { imageOpen, ngineOpen} }) => ({
-  imageOpen: (typeof imageOpen === 'undefined') && true,
-  ngineOpen: ngineOpen || true,
+  imageOpen,
+  ngineOpen,
 });
 
 const mapDispatchToProps = (dispatch) => ({

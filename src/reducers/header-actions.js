@@ -35,21 +35,25 @@ const headerActions = (state = {
 }, action) => {
   switch (action.type) {
     case 'TOGGLE_NGINE':
-      console.log('triggered');
-      if (!ngineOpen) {
+      console.log(state.ngineOpen);
+      if (!state.ngineOpen) {
+        console.log(`imageOpen: false,
+  ngineOpen: true`);
         return {
           imageOpen: false,
-          ngineOPen: true,
+          ngineOpen: true,
         };
       }
+      console.log(`imageOpen: false,
+  ngineOpen: false`);
       return {
         imageOpen: false,
         ngineOpen: false,
       };
 
     case 'TOGGLE_IMAGE':
-      console.log('triggered');
-      if(!imageOpen) {
+      console.log(state.imageOpen);
+      if(!state.imageOpen) {
         return {
           imageOpen: true,
           ngineOpen: false,
