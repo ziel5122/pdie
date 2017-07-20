@@ -10,27 +10,30 @@ import Header from '../Header/header';
 const App = ({ renderLocation }) => {
   console.log(`App renderLocation: ${renderLocation}`);
   const styles = getStyles({renderLocation});
+  const zDepth = renderLocation === 'client' ? 1 : 0;
 
   return (
     <div style={{background: 'lightblue'}}>
-      <p>
+      <div>
         <span>{'This HTML was rendered on the '}</span>
         <span style={styles.server} id="server">{'server '}</span>
         <span style={styles.client} id="client">{'client.'}</span>
-      </p>
-      <Paper zDepth={0}>
+      </div>
+      <Paper zDepth={zDepth} style={{margin: '8px',}}>
         <Header />
       </Paper>
-      <Paper>
+      <Paper zDepth={zDepth}>
         <Body
           style={{
             ...styles.body,
           }}
         />
       </Paper>
-      <Gallery
-        style={styles.gallery}
-      />
+      <Paper zDepth={zDepth} style={{background: 'red'}}>
+        <Gallery
+          style={styles.gallery}
+        />
+      </Paper>
     </div>
   );
 };

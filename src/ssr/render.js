@@ -4,7 +4,7 @@ const renderHtml = (appHtml, store) => (`
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body>
+  <body style="margin:0;">
     <div id="root">${appHtml}</div>
     <script src="client-bundle2.js"></script>
     <script>
@@ -17,11 +17,3 @@ const renderHtml = (appHtml, store) => (`
 `);
 
 export { renderHtml };
-
-/*
-<script>
-  // WARNING: See the following for security issues around embedding JSON in HTML:
-  // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations
-  window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
-</script>
-*/

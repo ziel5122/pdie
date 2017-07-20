@@ -19,7 +19,9 @@ const HeaderCenter = ({
       <div style={{
           ...styles.imageWrapper,
           background: imageOpen ? 'darkgray' : 'white',
-          height: imageOpen ? '56px' : '40px',
+          height: imageOpen ? '56px' : '24px',
+          marginTop: 0,
+          verticalAlign: 'top',
       }}>
         <ImageAddToPhotos
           onTouchTap={() => {
@@ -31,14 +33,15 @@ const HeaderCenter = ({
             cursor: 'pointer',
             cursor: 'hand',
             display: 'inline-block',
-            marginTop: '8px',
+            marginTop: '0',
+            verticalAlign: 'top',
           } : {
             background: 'white',
             color: 'darkgray',
             cursor: 'pointer',
             cursor: 'hand',
             display: 'inline-block',
-            marginTop: '8px',
+            marginTop: '0',
           }}
         />
       </div>
