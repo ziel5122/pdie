@@ -10,28 +10,19 @@ const headerRight_ = {
 };
 
 const styles = {
-  header: {
-    display: 'flex',
-    height: '40px',
-  },
   github: {
     ...headerRight_,
     fontSize: '21px',
   },
   headerCenter: {
-    ...header_,
-    flex: 2,
+    flex: 1,
     textAlign: 'center',
   },
   headerLeft: {
-    marginBottom: '8px',
-    marginTop: '8px',
-    verticalAlign: 'top',
-    width: '150px',
+    whiteSpace: 'nowrap',
   },
   headerRight: {
     ...header_,
-    flex: 1,
     textAlign: 'right',
   },
 };

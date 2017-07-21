@@ -10,6 +10,7 @@ import webpack from 'webpack';
 import middleware from 'webpack-dev-middleware';
 import hotReplacement from 'webpack-hot-middleware';
 
+import styles from './styles';
 import App from './App';
 import config from '../webpack.config';
 import { renderHtml } from './ssr/render';
@@ -41,7 +42,7 @@ const muiTheme = getMuiTheme({
 const appHtml = process.env.SSR ? renderToString(
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
-      <App />
+      <App style={styles.app} />
     </Provider>
   </MuiThemeProvider>
 ) : '';

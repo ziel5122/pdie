@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { createStore } from 'redux';
 
+import styles from './styles';
 import App from './App';
 import reducers from './reducers';
 
@@ -23,7 +24,7 @@ const muiTheme = getMuiTheme({
 render(
   <MuiThemeProvider muiTheme={muiTheme}>
     <Provider store={store}>
-      <App />
+      <App style={styles.app} />
     </Provider>
   </MuiThemeProvider>,
   document.getElementById('root')

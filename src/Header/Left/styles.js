@@ -1,5 +1,7 @@
 const headerLeft_ = {
+  marginBottom: '8px',
   marginLeft: '8px',
+  marginTop: '8px',
 };
 
 const styles = {

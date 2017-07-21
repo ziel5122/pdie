@@ -1,17 +1,27 @@
+const actionButton_ = {
+  cursor: 'pointer',
+  cursor: 'hand',
+};
+
 const styles = {
-  actions: {
-    height: '24px',
-    padding: 0,
-    verticalAlign: 'top',
+  imageButton: {
+    ...actionButton_,
+    marginTop: '8px',
   },
   imageWrapper: {
-    background: 'darkgray',
+    display: 'inline-block',
+    width: '40px',
+  },
+  ngineButton: {
+    ...actionButton_,
+    marginTop: '8px',
+  },
+  ngineWrapper: {
     display: 'inline-block',
     height: '40px',
-    margin: 0,
-    padding: 0,
+    paddingLeft: '8px',
+    paddingRight: '8px',
     verticalAlign: 'top',
-    width: '40px',
   },
 };
 

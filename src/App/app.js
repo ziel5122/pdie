@@ -2,27 +2,37 @@ import Paper from 'material-ui/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import getStyles from './styles';
+import styles from './styles';
 import Body from '../Body';
 import Gallery from '../Gallery/gallery';
 import Header from '../Header/header';
 
-const App = ({ renderLocation }) => {
-  console.log(`App renderLocation: ${renderLocation}`);
-  const styles = getStyles({renderLocation});
-  const zDepth = renderLocation === 'client' ? 1 : 0;
+let clientColor;
+let serverColor;
+let zDepth;
+
+const App = ({ renderLocation, style }) => {
+  if (renderLocation === 'server') {
+    clientColor = 'darkgray';
+    serverColor = 'black';
+    zDepth = 0;
+  } else {
+    clientColor = 'black';
+    serverColor = 'darkgray';
+    zDepth = 1;
+  }
 
   return (
-    <div style={{background: 'lightblue'}}>
+    <div style={style}>
       <div>
         <span>{'This HTML was rendered on the '}</span>
-        <span style={styles.server} id="server">{'server '}</span>
-        <span style={styles.client} id="client">{'client.'}</span>
+        <span style={{ color: serverColor }} id="server">{'server '}</span>
+        <span style={{ color: clientColor }} id="client">{'client.'}</span>
       </div>
-      <Paper zDepth={zDepth} style={{margin: '8px',}}>
-        <Header />
+      <Paper zDepth={zDepth} style={{ margin: '8px' }}>
+        <Header style={styles.header} />
       </Paper>
-      <Paper zDepth={zDepth}>
+      <Paper zDepth={zDepth} style={{ margin: '8px' }}>
         <Body
           style={{
             ...styles.body,
