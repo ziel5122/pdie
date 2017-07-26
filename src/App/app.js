@@ -21,7 +21,6 @@ const App = ({ renderLocation, style }) => {
     serverColor = 'darkgray';
     zDepth = 1;
   }
-
   return (
     <div style={style}>
       <div>
