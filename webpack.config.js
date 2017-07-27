@@ -34,7 +34,7 @@ const config = {
         ],
       },
       {
-        exclude: join(__dirname, 'node_modules'),
+        include: join(__dirname, 'img'),
         test: /\.png$/,
         loader: 'url-loader',
       },

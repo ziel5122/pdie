@@ -57,25 +57,35 @@ const HeaderCenter = ({
           ...styles.ngineWrapper,
           background: ngineBackground,
         }}>
+        <TextField
+          id="search"
+          inputStyle={{
+            fontSize: '21px',
+            height: '24px',
+            margin: 0,
+            verticalAlign: 'middle',
+          }}
+          style={{
+            display: ngineOpen ? 'inline-block' : 'none',
+            height: '36px',
+            margin: 0,
+            marginLeft: '8px',
+            marginRight: '8px',
+            verticalAlign: 'middle',
+          }}
+        />
         <ActionSearch
           onTouchTap={toggleNgine}
           style={{
             ...styles.ngineButton,
             color: ngineColor,
+            marginRight: '8px',
           }}
         />
-        <ContentClear />
-        <TextField
-          id="search"
+        <ContentClear
           style={{
-            display: ngineOpen ? 'inline-block' : 'none',
-            fontSize: '21px',
-            height: '24px',
-          }}
-          inputStyle={{
-            height: '16px',
-            padding: '0px',
-            verticalAlign: 'middle',
+            color: ngineColor,
+            marginRight: '8px',
           }}
         />
       </div>

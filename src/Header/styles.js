@@ -15,8 +15,9 @@ const styles = {
     fontSize: '21px',
   },
   headerCenter: {
-    flex: 1,
-    textAlign: 'center',
+    flex: 2,
+    marginLeft: '40px',
+    textAlign: 'left',
   },
   headerLeft: {
     whiteSpace: 'nowrap',

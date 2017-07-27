@@ -10,6 +10,7 @@ const styles = {
   },
   imageWrapper: {
     display: 'inline-block',
+    textAlign: 'center',
     width: '40px',
   },
   ngineButton: {
@@ -19,8 +20,7 @@ const styles = {
   ngineWrapper: {
     display: 'inline-block',
     height: '40px',
-    paddingLeft: '8px',
-    paddingRight: '8px',
+    margin: 0,
     verticalAlign: 'top',
   },
 };
