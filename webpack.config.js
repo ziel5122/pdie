@@ -36,7 +36,7 @@ const config = {
       {
         include: join(__dirname, 'img'),
         test: /\.png$/,
-        loader: 'url-loader',
+        loader: 'file-loader',
       },
     ],
   },

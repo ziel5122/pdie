@@ -15,7 +15,7 @@ import App from './App';
 import config from '../webpack.config';
 import { renderHtml } from './ssr/render';
 import reducers from './reducers';
-
+/*
 dotenv.config();
 
 const middlewareConfig = {
@@ -23,16 +23,16 @@ const middlewareConfig = {
   stats: {colors: true},
   publicPath: config.output.publicPath
 };
-
+*/
 const app = express();
-
+/*
 console.log(process.env.NODE_ENV || 'production');
 if (process.env.NODE_ENV === 'development') {
   const compiler = webpack(config);
   app.use(middleware(compiler, middlewareConfig));
   app.use(hotReplacement(compiler));
 }
-
+*/
 const store = createStore(reducers);
 
 const muiTheme = getMuiTheme({
@@ -50,7 +50,7 @@ const appHtml = process.env.SSR ? renderToString(
 const html = renderHtml(appHtml, store);
 
 app.get('*', (req, res) => {
-  res.send(html);
+  res.send(appHtml);
 });
 
 const port = process.env.PORT || 3000;
