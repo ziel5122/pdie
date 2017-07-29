@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import { createIsomorphicWebpack } from 'isomorphic-webpack';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
@@ -10,12 +11,12 @@ import webpack from 'webpack';
 import middleware from 'webpack-dev-middleware';
 import hotReplacement from 'webpack-hot-middleware';
 
-import styles from './styles';
-import App from './App';
 import config from '../webpack.config';
-import { renderHtml } from './ssr/render';
+import Main from './main';
 import reducers from './reducers';
-/*
+import styles from './styles';
+import { renderHtml } from './ssr/render';
+
 dotenv.config();
 
 const middlewareConfig = {
@@ -23,29 +24,23 @@ const middlewareConfig = {
   stats: {colors: true},
   publicPath: config.output.publicPath
 };
-*/
+
 const app = express();
-/*
-console.log(process.env.NODE_ENV || 'production');
-if (process.env.NODE_ENV === 'development') {
-  const compiler = webpack(config);
-  app.use(middleware(compiler, middlewareConfig));
-  app.use(hotReplacement(compiler));
-}
-*/
+
+createIsomorphicWebpack(config);
+
+const compiler = webpack(config);
+app.use(middleware(compiler, middlewareConfig));
+app.use(hotReplacement(compiler));
+
 const store = createStore(reducers);
 
 const muiTheme = getMuiTheme({
   userAgent: 'all',
 });
 
-const appHtml = process.env.SSR ? renderToString(
-  <MuiThemeProvider muiTheme={muiTheme}>
-    <Provider store={store}>
-      <App style={styles.app} />
-    </Provider>
-  </MuiThemeProvider>
-) : '';
+//const appHtml = renderToString(<Main />);
+const appHtml = '';
 
 const html = renderHtml(appHtml, store);
 

@@ -2,13 +2,14 @@ import React from 'react';
 
 import styles from './styles';
 
-//const panafold = require('../../../img/panafold.png');
+const panafold = require('../../../img/panafold.png');
 
 const HeaderLeft = ({ style }) => (
   <div style={style}>
     <a href="http://panafold.co">
       <img
         alt="panafold"
+        src={panafold}
         style={styles.panafold}
       />
     </a>
