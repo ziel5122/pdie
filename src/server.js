@@ -20,7 +20,8 @@ const app = express();
 const devMiddlewareConfig = {
   noInfo: true,
   stats: {
-    colors: true
+    colors: true,
+    errorDetails: true,
   },
   publicPath: config.output.publicPath
 };

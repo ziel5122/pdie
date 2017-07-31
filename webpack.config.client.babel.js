@@ -1,8 +1,8 @@
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { v4 } from 'uuid';
 import { HotModuleReplacementPlugin } from 'webpack';
 
-const APP_DIR = join(__dirname, 'src');
+const APP_DIR = resolve(__dirname, 'pdie/src');
 
 const config = {
   context: APP_DIR,

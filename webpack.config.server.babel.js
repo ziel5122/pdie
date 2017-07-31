@@ -22,6 +22,9 @@ const config = {
       },
     ],
   },
+  node: {
+    __dirname: true,
+  },
   output: {
     filename: '[name].bundle.js',
     path: join(__dirname, 'build'),
