@@ -1,34 +1,16 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import { createStore } from 'redux';
 
-import styles from './styles';
-import App from './App';
+import Main from './Main';
 import reducers from './reducers';
 
-injectTapEventPlugin();
-
-const preloadedState = window.__PRELOADED_STATE;
-delete window.__PRELOADED_STATE;
-
-const store = createStore(reducers, preloadedState);
-
-const muiTheme = getMuiTheme({
-  userAgent: 'all',
-});
-
 render(
-  <MuiThemeProvider muiTheme={muiTheme}>
-    <Provider store={store}>
-      <App style={styles.app} />
-    </Provider>
-  </MuiThemeProvider>,
+  <Main store={createStore(reducers, window.__PRELOADED_STATE)} />,
   document.getElementById('root')
 );
+
+delete window.__PRELOADED_STATE;
 
 store.dispatch({
   renderLocation: 'client',
