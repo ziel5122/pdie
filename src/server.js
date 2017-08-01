@@ -6,8 +6,8 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import webpack from 'webpack';
-import devMiddleware from 'webpack-dev-middleware';
-import hotMiddleware from 'webpack-hot-middleware';
+//import devMiddleware from 'webpack-dev-middleware';
+//import hotMiddleware from 'webpack-hot-middleware';
 
 import config from '../webpack.config.client.babel';
 import Main from './main';
@@ -16,7 +16,7 @@ import styles from './styles';
 import { renderHtml } from './ssr/render';
 
 const app = express();
-
+/*
 const devMiddlewareConfig = {
   noInfo: true,
   stats: {
@@ -35,7 +35,7 @@ const hotMiddlewareConfig = {
 const compiler = webpack(config);
 app.use(devMiddleware(compiler, devMiddlewareConfig));
 app.use(hotMiddleware(compiler, hotMiddlewareConfig));
-
+*/
 const store = createStore(reducers);
 
 const appHtml = renderToString(<Main store={store} />);

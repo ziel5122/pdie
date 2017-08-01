@@ -14,7 +14,7 @@ const config = {
   module: {
     rules: [
       {
-        include: APP_DIR,
+        exclude: join(__dirname, 'node_modules'),
         test: /\.js$/,
         use: 'babel-loader',
       },
@@ -24,14 +24,18 @@ const config = {
       },
     ],
   },
-  node: {
-    __dirname: true,
-  },
   output: {
     filename: '[name].bundle.js',
     path: join(__dirname, 'build'),
   },
   target: 'node',
 };
+
+Object.keys(config.entry).forEach((entryName) => {
+    console.log(`Bundling ${entryName}.bundle.js`);
+    console.log(`via entry: ${APP_DIR}/${config.entry[entryName]}`);
+    console.log(`to ${config.output.path}/${entryName}.bundle.js`)
+    console.log();
+});
 
 export default config;
