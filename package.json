@@ -11,7 +11,7 @@
     "start": "node server-bundle.js",
     "start:server": "babel-node src/server.js",
     "test": "jest",
-    "webpack": "webpack --config webpack.config.server.babel.js"
+    "webpack": "webpack --config webpack.config.server.babel.js --display-error-details"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,8 @@ import { join } from 'path';
 
 const APP_DIR = join(__dirname, 'src');
 
+console.log(APP_DIR);
+
 const config = {
   context: APP_DIR,
   entry: {
