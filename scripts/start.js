@@ -1,52 +1,38 @@
-import { cyan, green, red, yellow } from 'chalk';
 import dotenv from 'dotenv';
-import clearConsole from 'react-dev-utils/clearConsole';
-import formatWebpackMessages from 'react-dev-utils/formatWebpackMessages';
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 import webpack from 'webpack';
+import devMiddleware from 'webpack-dev-middleware';
+import hotMiddleware from 'webpack-hot-middleware';
 
-import { clientDevConfig } from '../webpack.config';
+import App from '../src/App';
+import config from '../webpack.config.js';
+import { renderHtml } from '../src/ssr/render';
 
 dotenv.config();
 
-process.env.NODE_ENV = 'development';
+const compiler = webpack(config);
+const devMiddlewareConfig = {
+  noInfo: true,
+  stats: {colors: true},
+  publicPath: config.output.publicPath
+}
 
-const compiler = webpack(clientDevConfig);
+const app = express();
+app.use(devMiddleware(compiler, devMiddlewareConfig));
+app.use(hotMiddleware(compiler));
 
-// bundle is invalidated on change
-compiler.plugin('invalid', () => {
-  clearConsole();
-  console.log('Compiling...');
+const html = renderToString(<App />);
+app.get('*', (req, res) => {
+  res.send(renderHtml(html));
 });
 
-compiler.watch(null, (err, stats) => {
-  clearConsole();
-
-  const messages = formatWebpackMessages(status.toJson({}, true));
-  const isSuccessful = !messages.errors.length && !messages.warnings.length;
-
-  if (isSuccessful) {
-    console.log(green('Client compiled successfully!'));
-    console.log();
+const port = process.env.PORT || 3000;
+app.listen(port, function(error) {
+  if (error) {
+    console.error(error)
+  } else {
+    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
   }
-
-  // If errors exist, only show errors.
-  if (messages.errors.length) {
-    console.log(red('Failed to compile.'));
-    console.log();
-    messages.errors.forEach((message) => {
-      console.log(message);
-      console.log();
-    });
-    return;
-  }
-
-  // Show warnings if no errors were found.
-  if (messages.warnings.length) {
-    console.log(yellow('Compiled with warnings.'));
-    console.log();
-    messages.warnings.forEach((message) => {
-      console.log(message);
-      console.log();
-    });
-  }
-});
+})

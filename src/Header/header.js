@@ -1,17 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-import Center from './Center';
-import Left from './Left';
-import Right from './Right';
-
 import styles from './styles';
+import Center from './Center';
+import Left from './Left/header-left';
+import Right from './Right/header-right';
 
-const Header = () => (
-  <div style={styles.header}>
+const Header = ({ style }) => (
+  <div style={style}>
     <Left style={styles.headerLeft} />
-    <Center />
-    <Right />
+    <Center style={styles.headerCenter} />
+    <Right style={styles.headerRight} />
   </div>
 );
 

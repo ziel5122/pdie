@@ -1,28 +1,28 @@
-const logo = {
-  height: '24px',
-  width: 'auto',
-};
-
-const txt = {
-  fontSize: '24px',
-  display: 'inline-block',
-  maxHeight: '24px',
-  marginBottom: '6px',
-};
-
-const textImage = {
-  ...txt,
-  color: 'darkgray',
+const headerLeft_ = {
+  marginBottom: '8px',
   marginLeft: '8px',
+  marginTop: '8px',
 };
 
-const textNgine = {
-  ...txt,
-  color: 'gray',
+const styles = {
+  image: {
+    color: 'darkgray',
+    fontSize: '21px',
+  },
+  ngine: {
+    color: 'gray',
+    fontSize: '21px',
+  },
+  title: {
+    ...headerLeft_,
+    display: 'inline-block',
+    verticalAlign: 'top',
+  },
+  panafold: {
+    ...headerLeft_,
+    height: '24px',
+    width: 'auto',
+  },
 };
 
-export default {
-  logo,
-  textImage,
-  textNgine,
-};
+export default styles;

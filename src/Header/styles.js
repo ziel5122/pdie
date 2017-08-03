@@ -1,61 +1,31 @@
-const search = {
-  backgroundColor: 'gray',
-  color: 'white',
-  display: 'inline-block',
-  height: '5vh',
-  margin: '0 auto',
-};
-
-const imageUpload = {
-  backgroundColor: 'darkgray',
-  color: 'white',
-  display: 'inline-block',
-  height: '5vh',
-  margin: '0 auto',
-};
-
-const header = {
-  backgroundColor: 'white',
-  height: '40px',
-  display: 'flex',
-  display: '-webkit-flex', /* Safari */
-  alignItems: 'center',
-  WebkitAlignItems: 'center', /* Safari 7.0+ */
-};
-
 const header_ = {
-  flex: 1,
   height: '24px',
+  marginBottom: '8px',
+  marginTop: '8px',
+  verticalAlign: 'top',
 };
 
-const headerCenter = {
-  ...header_,
-  textAlign: 'center',
+const headerRight_ = {
+  marginRight: '8px',
 };
 
-const headerLeft = {
-  ...header_,
-  display: 'flex',
-  alignItems: 'center',
-  marginLeft: '8px',
-  padding: 0,
-  textAlign: 'left',
+const styles = {
+  github: {
+    ...headerRight_,
+    fontSize: '21px',
+  },
+  headerCenter: {
+    flex: 2,
+    marginLeft: '40px',
+    textAlign: 'left',
+  },
+  headerLeft: {
+    whiteSpace: 'nowrap',
+  },
+  headerRight: {
+    ...header_,
+    textAlign: 'right',
+  },
 };
 
-const headerRight = {
-  ...header_,
-  textAlign: 'right',
-};
-
-const imgPanafold = {
-  display: 'inline-block',
-  height: '24px',
-};
-
-export default {
-  header,
-  headerCenter,
-  headerLeft,
-  headerRight,
-  imgPanafold,
-};
+export default styles;

@@ -1,10 +1,10 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
+import { connect } from 'react-redux';
 
 import App from './app';
 
-export default () => (
-  <MuiThemeProvider>
-    <App />
-  </MuiThemeProvider>
-);
+const mapStateToProps = ({ renderLocation }) => ({
+  renderLocation,
+});
+
+export default connect(mapStateToProps)(App);

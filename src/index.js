@@ -1,18 +1,19 @@
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
 
-import App from './App';
+import Main from './main';
+import reducers from './reducers';
 
-const MainMui = () => (
-  <Provider store={window.__PRELOADED_STATE__}>
-    <MuiThemeProvider>
-      <App />
-    </MuiThemeProvider>
-  </Provider>
+const store = createStore(reducers, window.__PRELOADED_STATE);
+delete window.__PRELOADED_STATE;
+
+render(
+  <Main store={store} />,
+  document.getElementById('root')
 );
 
-ReactDOM.render(
-  <MainMui />,
-  document.getElementById('root'),
-);
+store.dispatch({
+  renderLocation: 'client',
+  type: 'SET_RENDER_LOCATION',
+});

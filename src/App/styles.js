@@ -1,29 +1,19 @@
-const actions = {
-  alignItems: 'center',
-  display: 'flex',
+const styles = {
+  body: {
+    marginTop: '16px',
+    textAlign: 'center',
+    verticalAlign: 'middle',
+  },
+  gallery: {
+    marginTop: '24px',
+    marginLeft: '0px',
+    padding: '0px',
+  },
+  header: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    height: '40px',
+  },
 };
 
-const headerText = {
-  marginLeft: '8px',
-};
-
-const text = {
-  fontSize: '24px',
-};
-
-const textImage = {
-  ...text,
-  color: 'darkgray',
-};
-
-const textNgine = {
-  ...text,
-  color: 'gray',
-};
-
-export default {
-  actions,
-  headerText,
-  textImage,
-  textNgine,
-};
+export default styles;
