@@ -1,14 +1,14 @@
-import { join, resolve } from 'path';
-import { v4 } from 'uuid';
-import { HotModuleReplacementPlugin } from 'webpack';
+import { join } from 'path';
 
-const APP_DIR = resolve(__dirname, 'src');
+const APP_DIR = join(__dirname, 'src');
 
 const config = {
   context: APP_DIR,
-  entry: [
-      'index.js',
-  ],
+  entry: {
+    client: [
+      './index.js',
+    ],
+  },
   module: {
     rules: [
       {
@@ -27,13 +27,9 @@ const config = {
     ],
   },
   output: {
-    path: APP_DIR,
+    path: join(__dirname, 'build'),
     filename: '[name].bundle.js',
-    publicPath: '/'
   },
-  plugins: [
-    new HotModuleReplacementPlugin(),
-  ],
 };
 
 export default config;

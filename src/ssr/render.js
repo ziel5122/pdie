@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 const renderHtml = (appHtml, store) => (`
 <!doctype html><html>
   <head>
@@ -6,7 +8,7 @@ const renderHtml = (appHtml, store) => (`
   </head>
   <body style="margin:0;">
     <div id="root">${appHtml}</div>
-    <script src="app.js"></script>
+    <script src="client.bundle.js"></script>
     <script>
       // WARNING: See the following for security issues around embedding JSON in HTML:
       // http://redux.js.org/docs/recipes/ServerRendering.html#security-considerations

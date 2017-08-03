@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './styles';
 
-const panafold = require('../../../img/panafold.jpg');
+import panafold from '../../../img/panafold.jpg';
 
 const HeaderLeft = ({ style }) => (
   <div style={style}>
