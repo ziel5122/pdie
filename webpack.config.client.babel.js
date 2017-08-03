@@ -4,8 +4,6 @@ import { HotModuleReplacementPlugin } from 'webpack';
 
 const APP_DIR = resolve(__dirname, 'src');
 
-console.log(APP_DIR);
-
 const config = {
   context: APP_DIR,
   entry: [

@@ -1,8 +1,12 @@
+import { readdirSync } from 'fs';
 import { join } from 'path';
 
 const APP_DIR = join(__dirname, 'src');
 
-console.log(APP_DIR);
+const nodeModules = {};
+readdirSync('node_modules')
+  .filter((x) => ['.bin'].indexOf(x) === -1)
+  .forEach((mod) => { nodeModules[mod] = `commonjs ${mod}`});
 
 const config = {
   context: APP_DIR,
@@ -11,6 +15,7 @@ const config = {
       './server.js',
     ],
   },
+  externals: nodeModules,
   module: {
     rules: [
       {
@@ -30,12 +35,5 @@ const config = {
   },
   target: 'node',
 };
-
-Object.keys(config.entry).forEach((entryName) => {
-    console.log(`Bundling ${entryName}.bundle.js`);
-    console.log(`via entry: ${APP_DIR}/${config.entry[entryName]}`);
-    console.log(`to ${config.output.path}/${entryName}.bundle.js`)
-    console.log();
-});
 
 export default config;
