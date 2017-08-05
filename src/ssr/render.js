@@ -8,6 +8,7 @@ const renderHtml = (appHtml, store) => (`
   </head>
   <body style="margin:0;">
     <div id="root">${appHtml}</div>
+    <script src="node-static.js"></script>
     <script src="client.bundle.js"></script>
     <script>
       // WARNING: See the following for security issues around embedding JSON in HTML:

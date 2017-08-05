@@ -79,12 +79,14 @@ const HeaderCenter = ({
           style={{
             ...styles.ngineButton,
             color: ngineColor,
+            marginLeft: '8px',
             marginRight: '8px',
           }}
         />
         <ContentClear
           style={{
             color: ngineColor,
+            marginLeft: '8px',
             marginRight: '8px',
           }}
         />
