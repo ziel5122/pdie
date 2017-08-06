@@ -24,7 +24,7 @@ const config = {
         use: 'babel-loader',
       },
       {
-        test: /\.jpg$/,
+        test: /\.(jpg|png)$/,
         use: 'url-loader',
       },
     ],

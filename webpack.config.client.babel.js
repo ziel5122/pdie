@@ -20,7 +20,7 @@ const config = {
         ],
       },
       {
-        test: /\.jpg$/,
+        test: /\.(jpg|png)$/,
         use: [
           'url-loader'
         ],
@@ -32,10 +32,11 @@ const config = {
     filename: '[name].bundle.js',
   },
   plugins: [
+    /*
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
     }),
-
+    */
     new webpack.optimize.CommonsChunkPlugin({
       filename: 'node-static.js',
       minChunks({ context }, count) {

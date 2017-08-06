@@ -16,7 +16,6 @@ let ngineColor;
 const HeaderCenter = ({
   imageOpen,
   ngineOpen,
-  style,
   toggleImage,
   toggleNgine
 }) => {
@@ -39,7 +38,7 @@ const HeaderCenter = ({
   }
 
   return (
-    <div style={style}>
+    <div style={styles.headerActions}>
       <div style={{
           ...styles.imageWrapper,
           background: imageBackground,
@@ -79,15 +78,12 @@ const HeaderCenter = ({
           style={{
             ...styles.ngineButton,
             color: ngineColor,
-            marginLeft: '8px',
-            marginRight: '8px',
           }}
         />
         <ContentClear
           style={{
+            ...styles.ngineButton,
             color: ngineColor,
-            marginLeft: '8px',
-            marginRight: '8px',
           }}
         />
       </div>

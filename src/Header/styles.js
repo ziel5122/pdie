@@ -1,30 +1,52 @@
 const header_ = {
   height: '24px',
-  marginBottom: '8px',
-  marginTop: '8px',
-  verticalAlign: 'top',
 };
 
-const headerRight_ = {
+const headerLeft_ = {
+  marginBottom: '8px',
   marginRight: '8px',
+  marginTop: '8px',
 };
 
 const styles = {
   github: {
-    ...headerRight_,
+    cursor: 'pointer',
+    cursor: 'hand',
+    height: '24px',
+    marginBottom: '8px',
+    marginLeft: '8px',
+    marginTop: '8px',
+  },
+  header: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    height: '40px',
+    paddingLeft: '8px',
+  },
+  image: {
+    color: 'darkgray',
     fontSize: '21px',
   },
-  headerCenter: {
-    flex: 2,
-    marginLeft: '40px',
-    textAlign: 'left',
-  },
-  headerLeft: {
+  left: {
     whiteSpace: 'nowrap',
   },
-  headerRight: {
-    ...header_,
+  ngine: {
+    color: 'gray',
+    fontSize: '21px',
+  },
+  panafold: {
+    ...headerLeft_,
+    height: '24px',
+    width: 'auto',
+  },
+  right: {
+    paddingRight: '8px',
     textAlign: 'right',
+  },
+  title: {
+    ...headerLeft_,
+    display: 'inline-block',
+    verticalAlign: 'top',
   },
 };
 

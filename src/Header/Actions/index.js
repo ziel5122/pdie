@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import HeaderCenter from './header-center';
+import HeaderActions from './header-actions';
 
 const mapStateToProps = ({ headerActions: { imageOpen, ngineOpen} }) => ({
   imageOpen,
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HeaderCenter);
+)(HeaderActions);

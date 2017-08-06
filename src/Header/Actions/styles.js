@@ -1,26 +1,35 @@
 const actionButton_ = {
   cursor: 'pointer',
   cursor: 'hand',
+  margin: '8px',
+};
+
+const actionWrapper_ = {
+  textAlign: 'center',
 };
 
 const styles = {
+  headerActions: {
+    display: 'flex',
+    flex: 2,
+    paddingLeft: '8px',
+    textAlign: 'left',
+  },
   imageButton: {
     ...actionButton_,
-    marginTop: '8px',
+    display: 'inline-block',
   },
   imageWrapper: {
     display: 'inline-block',
     textAlign: 'center',
-    width: '40px',
   },
   ngineButton: {
     ...actionButton_,
-    marginTop: '8px',
+    display: 'inline-block',
   },
   ngineWrapper: {
     display: 'inline-block',
     height: '40px',
-    margin: 0,
     verticalAlign: 'top',
   },
 };
