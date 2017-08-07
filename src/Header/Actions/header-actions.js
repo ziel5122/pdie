@@ -1,10 +1,10 @@
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
-import ContentClear from 'material-ui/svg-icons/content/clear';
 import ImageAddToPhotos from 'material-ui/svg-icons/image/add-to-photos';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 
+import SearchClear from '../SearchClear';
 import styles from './styles';
 
 let imageBackground;
@@ -16,6 +16,8 @@ let ngineColor;
 const HeaderCenter = ({
   imageOpen,
   ngineOpen,
+  searchQuery,
+  setSearchQuery,
   toggleImage,
   toggleNgine
 }) => {
@@ -59,19 +61,23 @@ const HeaderCenter = ({
         <TextField
           id="search"
           inputStyle={{
+            color: 'white',
             fontSize: '21px',
             height: '24px',
-            margin: 0,
-            verticalAlign: 'middle',
+            verticalAlign: 'top',
           }}
+          onChange={({ target: { value } }) => { setSearchQuery(value) }}
           style={{
             display: ngineOpen ? 'inline-block' : 'none',
-            height: '36px',
-            margin: 0,
-            marginLeft: '8px',
+            height: '34px',
             marginRight: '8px',
-            verticalAlign: 'middle',
+            marginTop: '8px',
+            verticalAlign: 'top',
           }}
+          underlineFocusStyle={{
+            borderColor: 'orange',
+          }}
+          value={searchQuery}
         />
         <ActionSearch
           onTouchTap={toggleNgine}
@@ -80,12 +86,7 @@ const HeaderCenter = ({
             color: ngineColor,
           }}
         />
-        <ContentClear
-          style={{
-            ...styles.ngineButton,
-            color: ngineColor,
-          }}
-        />
+        <SearchClear ngineColor={ngineColor} />
       </div>
     </div>
   );

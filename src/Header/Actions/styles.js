@@ -1,7 +1,9 @@
 const actionButton_ = {
   cursor: 'pointer',
   cursor: 'hand',
-  margin: '8px',
+  marginBottom: '8px',
+  marginRight: '8px',
+  marginTop: '8px',
 };
 
 const actionWrapper_ = {
@@ -21,6 +23,7 @@ const styles = {
   },
   imageWrapper: {
     display: 'inline-block',
+    paddingLeft: '8px',
     textAlign: 'center',
   },
   ngineButton: {
@@ -30,6 +33,7 @@ const styles = {
   ngineWrapper: {
     display: 'inline-block',
     height: '40px',
+    paddingLeft: '8px',
     verticalAlign: 'top',
   },
 };
