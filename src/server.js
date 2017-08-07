@@ -12,7 +12,6 @@ import hotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.client.babel';
 import Main from './main';
 import reducers from './reducers';
-import styles from './styles';
 import { renderHtml } from './ssr/render';
 
 const store = createStore(reducers);

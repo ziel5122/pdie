@@ -4,7 +4,7 @@ import ImageAddToPhotos from 'material-ui/svg-icons/image/add-to-photos';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 
-import SearchClear from '../SearchClear';
+import Search from '../Search';
 import styles from './styles';
 
 let imageBackground;
@@ -54,40 +54,7 @@ const HeaderCenter = ({
           }}
         />
       </div>
-      <div style={{
-          ...styles.ngineWrapper,
-          background: ngineBackground,
-        }}>
-        <TextField
-          id="search"
-          inputStyle={{
-            color: 'white',
-            fontSize: '21px',
-            height: '24px',
-            verticalAlign: 'top',
-          }}
-          onChange={({ target: { value } }) => { setSearchQuery(value) }}
-          style={{
-            display: ngineOpen ? 'inline-block' : 'none',
-            height: '34px',
-            marginRight: '8px',
-            marginTop: '8px',
-            verticalAlign: 'top',
-          }}
-          underlineFocusStyle={{
-            borderColor: 'orange',
-          }}
-          value={searchQuery}
-        />
-        <ActionSearch
-          onTouchTap={toggleNgine}
-          style={{
-            ...styles.ngineButton,
-            color: ngineColor,
-          }}
-        />
-        <SearchClear ngineColor={ngineColor} />
-      </div>
+      <Search />
     </div>
   );
 };

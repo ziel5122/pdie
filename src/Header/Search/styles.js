@@ -11,6 +11,12 @@ const styles = {
     ...actionButton_,
     display: 'inline-block',
   },
+  ngineWrapper: {
+    display: 'inline-block',
+    height: '40px',
+    paddingLeft: '8px',
+    verticalAlign: 'top',
+  },
 };
 
 export default styles;
