@@ -1,23 +1,25 @@
+import AddAPhoto from 'material-ui/svg-icons/image/add-a-photo';
 import React from 'react';
 
 import styles from './styles';
 
-const Body = ({ imageOpen, style }) => (
+const Body = ({ imageOpen }) => (
   <div style={{
-      ...style,
+      ...styles.body,
       display: imageOpen ? 'block' : 'none',
     }}
   >
-    <div style={styles.upload}>
-      <div style={styles.uploadedImage}>
-        {`this is a body div`}
-        <br />
-        {`it's 640x480`}
-        <br />
-        {`${imageOpen}`}
-        <br />
-        {'more content'}
-      </div>
+    <div style={{
+        background: 'white',
+        display: 'inline-block',
+      }}
+    >
+      <AddAPhoto
+        style={{
+          height: '48px',
+          width: 'auto',
+        }}
+      />
     </div>
   </div>
 );

@@ -1,6 +1,6 @@
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
-import ImageAddToPhotos from 'material-ui/svg-icons/image/add-to-photos';
+import Photo from 'material-ui/svg-icons/image/photo';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 
@@ -10,16 +10,10 @@ import styles from './styles';
 let imageBackground;
 let imageColor;
 let imageHeight;
-let ngineBackground;
-let ngineColor;
 
 const HeaderCenter = ({
   imageOpen,
-  ngineOpen,
-  searchQuery,
-  setSearchQuery,
   toggleImage,
-  toggleNgine
 }) => {
   if (imageOpen) {
     imageBackground = 'darkgray';
@@ -31,14 +25,6 @@ const HeaderCenter = ({
     imageHeight = '40px';
   }
 
-  if (ngineOpen) {
-    ngineBackground = 'gray';
-    ngineColor = 'white';
-  } else {
-    ngineBackground = 'white';
-    ngineColor = 'gray';
-  }
-
   return (
     <div style={styles.headerActions}>
       <div style={{
@@ -46,7 +32,7 @@ const HeaderCenter = ({
           background: imageBackground,
           height: imageHeight,
       }}>
-        <ImageAddToPhotos
+        <Photo
           onTouchTap={toggleImage}
           style={{
             ...styles.imageButton,

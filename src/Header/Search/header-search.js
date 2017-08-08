@@ -5,24 +5,27 @@ import React from 'react';
 
 import styles from './styles';
 
+let ngineBackground;
+let ngineColor;
+
 const HeaderSearch = ({
   ngineOpen,
   searchQuery,
   setSearchQuery,
   toggleNgine,
 }) => {
-  const stateStyles = ngineOpen ? {
-    ngineBackground: 'gray',
-    ngineColor: 'white'
-  } : {
-    ngineBackground: 'white',
-    ngineColor: 'gray',
-  };
+  if (ngineOpen) {
+    ngineBackground = 'gray';
+    ngineColor = 'white';
+  } else {
+    ngineBackground = 'white';
+    ngineColor = 'gray';
+  }
 
   return (
     <div style={{
         ...styles.ngineWrapper,
-        background: stateStyles.ngineBackground,
+        background: ngineBackground,
       }}>
       <TextField
         id="search"
@@ -51,14 +54,14 @@ const HeaderSearch = ({
         }}
         style={{
           ...styles.ngineButton,
-          color: stateStyles.ngineColor,
+          color: ngineColor,
         }}
       />
       <ContentClear
         onTouchTap={() => setSearchQuery('')}
         style={{
           ...styles.ngineButton,
-          color: stateStyles.ngineColor,
+          color: ngineColor,
           display: searchQuery === '' ? 'none' : 'inline-block',
         }}
       />

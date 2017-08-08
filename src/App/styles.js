@@ -1,8 +1,6 @@
 const styles = {
-  body: {
-    marginTop: '16px',
-    textAlign: 'center',
-    verticalAlign: 'middle',
+  app: {
+    background: 'lightblue',
   },
   gallery: {
     marginTop: '24px',
