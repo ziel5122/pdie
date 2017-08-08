@@ -5,6 +5,7 @@ const APP_DIR = join(__dirname, 'src');
 
 const config = {
   context: APP_DIR,
+  devtool: 'source-map',
   entry: {
     client: [
       './index.js',

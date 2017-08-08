@@ -1,11 +1,20 @@
 import { combineReducers } from 'redux';
 
-import headerActions from './header-actions';
-import renderLocation from './render-location';
-import searchQuery from './search';
+import image from './image';
+import ngine from './ngine';
+
+const renderLocation = (state = 'server', action) => {
+  switch (action.type) {
+    case 'SET_RENDER_LOCATION':
+      return action.renderLocation;
+
+    default:
+      return state;
+  }
+};
 
 export default combineReducers({
-  headerActions,
+  image,
+  ngine,
   renderLocation,
-  searchQuery,
 });

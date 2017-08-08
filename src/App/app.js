@@ -26,7 +26,7 @@ const App = ({ renderLocation }) => {
       <div>
         <span
           style={{
-            fontFamily: 'roboto, sans-serif', 
+            fontFamily: 'roboto, sans-serif',
           }}
         >
           {'This HTML was rendered on the '}
@@ -60,7 +60,12 @@ const App = ({ renderLocation }) => {
           }}
         />
       </Paper>
-      <Paper zDepth={zDepth} style={{background: 'red'}}>
+      <Paper zDepth={zDepth} style={{
+          background: 'orange',
+          marginLeft: '8px',
+          marginRight: '8px',
+        }}
+      >
         <Gallery
           style={styles.gallery}
         />

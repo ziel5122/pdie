@@ -5,6 +5,13 @@ const paper_ = {
 };
 
 const styles = {
+  gallery: {
+    marginBottom: '16px',
+    marginLeft: '8px',
+    marginRight: '8px',
+    marginTop: '16px',
+    padding: '0px',
+  },
   img0: {
     ...paper_,
     //backgroundColor: 'red',

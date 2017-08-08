@@ -3,8 +3,8 @@ import React from 'react';
 
 import styles from './styles';
 
-const Gallery = ({ style }) => (
-  <div style={style}>
+const Gallery = () => (
+  <div style={styles.gallery}>
     <Paper style={styles.img0} zDepth={0}>
       <div
         style={{

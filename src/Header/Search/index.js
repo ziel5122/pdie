@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import HeaderSearch from './header-search';
 
-const mapStateToProps = ({ headerActions, searchQuery }) => ({
-  ngineOpen: headerActions.ngineOpen,
-  searchQuery,
+const mapStateToProps = ({ ngine }) => ({
+  ngineOpen: ngine.ngineOpen,
+  searchQuery: ngine.searchQuery,
 });
 
 const mapDispatchToProps = (dispatch) => ({

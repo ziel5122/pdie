@@ -1,13 +1,13 @@
 import { join } from 'path';
 
 const renderHtml = (appHtml, store) => (`
-<!doctype html><html>
+<!doctype html><html style="height:100%">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body style="margin:0;">
-    <div id="root">${appHtml}</div>
+  <body style="margin:0;height:100%">
+    <div id="root" style="height:100%">${appHtml}</div>
     <script src="node-static.js"></script>
     <script src="client.bundle.js"></script>
     <script>

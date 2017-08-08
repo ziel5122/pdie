@@ -11,6 +11,17 @@ let imageBackground;
 let imageColor;
 let imageHeight;
 
+let reader;
+
+const uploadImage = (e) => {
+  reader = new FileReader();
+  const file = e.target.files[0];
+
+  reader.onloadend(() => console.log(reader.result));
+
+  reader.readAsDataUrl(file);
+};
+
 const HeaderCenter = ({
   imageOpen,
   toggleImage,
@@ -33,7 +44,13 @@ const HeaderCenter = ({
           height: imageHeight,
       }}>
         <Photo
-          onTouchTap={toggleImage}
+          onTouchTap={(e) => {
+            if (!imageOpen) {
+              uploadImage(e);
+              toggleImage();
+            }
+            else toggleImage();
+          }}
           style={{
             ...styles.imageButton,
             color: imageColor,

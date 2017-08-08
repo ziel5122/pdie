@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Body from './body';
 
-const mapStateToProps = ({ headerActions: { imageOpen } }) => ({
-  imageOpen,
+const mapStateToProps = ({ image }) => ({
+  imageOpen: image.imageOpen,
 });
 
 export default connect(mapStateToProps)(Body);
