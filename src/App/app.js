@@ -13,12 +13,12 @@ let zDepth;
 
 const App = ({ renderLocation }) => {
   if (renderLocation === 'server') {
-    clientColor = 'darkgray';
+    clientColor = 'lightblue';
     serverColor = 'black';
     zDepth = 0;
   } else {
     clientColor = 'black';
-    serverColor = 'darkgray';
+    serverColor = 'lightblue';
     zDepth = 1;
   }
   return (

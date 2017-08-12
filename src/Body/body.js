@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './styles';
 
-const Body = ({ imageOpen }) => (
+const Body = ({ imageOpen, imageUploadUrl }) => (
   <div style={{
       ...styles.body,
       display: imageOpen ? 'block' : 'none',
@@ -14,10 +14,11 @@ const Body = ({ imageOpen }) => (
         display: 'inline-block',
       }}
     >
-      <AddAPhoto
+      <img
+        src={imageUploadUrl}
         style={{
           height: '48px',
-          width: 'auto',
+          width: 'auto' ,
         }}
       />
     </div>

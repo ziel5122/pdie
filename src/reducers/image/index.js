@@ -13,10 +13,10 @@ const imageOpen = (state = false, action) => {
   }
 };
 
-const imageUpload = (state = '', action) => {
+const imageUploadUrl = (state = '', action) => {
   switch (action.type) {
     case 'SET_IMAGE_UPLOAD':
-      return action.url;
+      return action.imageUploadUrl;
 
     default:
       return state;
@@ -25,5 +25,5 @@ const imageUpload = (state = '', action) => {
 
 export default combineReducers({
   imageOpen,
-  imageUpload,
+  imageUploadUrl,
 });

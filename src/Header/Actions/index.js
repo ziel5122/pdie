@@ -5,9 +5,17 @@ import HeaderActions from './header-actions';
 
 const mapStateToProps = ({ image }) => ({
   imageOpen: image.imageOpen,
+  imageUploadUrl: image.imageUploadUrl,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  setImageUpload(imageUploadUrl) {
+    dispatch({
+      imageUploadUrl,
+      type: 'SET_IMAGE_UPLOAD',
+    });
+  },
+
   toggleImage() {
     dispatch({
       type: 'TOGGLE_IMAGE',

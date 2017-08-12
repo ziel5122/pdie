@@ -13,17 +13,21 @@ let imageHeight;
 
 let reader;
 
-const uploadImage = (e) => {
+const uploadImage = (e, setImage) => {
   reader = new FileReader();
   const file = e.target.files[0];
 
-  reader.onloadend(() => console.log(reader.result));
+  reader.onloadend = () => {
+    setImage(reader.result);
+  };
 
-  reader.readAsDataUrl(file);
+  reader.readAsDataURL(file);
 };
 
 const HeaderCenter = ({
   imageOpen,
+  imageUploadUrl,
+  setImageUpload,
   toggleImage,
 }) => {
   if (imageOpen) {
@@ -54,8 +58,11 @@ const HeaderCenter = ({
         <input
           id="image-input"
           onChange={(e) => {
-            if (!imageOpen) {
-              uploadImage(e);
+            if (!imageUploadUrl) {
+              console.log(imageUploadUrl);
+              console.log(!imageUploadUrl);
+              console.log();
+              uploadImage(e, setImageUpload);
               toggleImage();
             }
             else toggleImage();
