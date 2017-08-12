@@ -43,18 +43,25 @@ const HeaderCenter = ({
           background: imageBackground,
           height: imageHeight,
       }}>
-        <Photo
-          onTouchTap={(e) => {
+        <label htmlFor="image-input">
+          <Photo
+            style={{
+              ...styles.imageButton,
+              color: imageColor,
+            }}
+          />
+        </label>
+        <input
+          id="image-input"
+          onChange={(e) => {
             if (!imageOpen) {
               uploadImage(e);
               toggleImage();
             }
             else toggleImage();
           }}
-          style={{
-            ...styles.imageButton,
-            color: imageColor,
-          }}
+          style={{ display: 'none' }}
+          type="file"
         />
       </div>
       <Search />
