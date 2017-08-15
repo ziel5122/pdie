@@ -3,7 +3,9 @@ import React from 'react';
 
 import styles from './styles';
 
-const Body = ({ imageOpen, imageUploadUrl }) => (
+const reader = new FileReader();
+
+const Body = ({ imageOpen, imageUploadUrl, setImageUploadUrl }) => (
   <div style={{
       ...styles.body,
       display: imageOpen ? 'block' : 'none',
@@ -14,13 +16,15 @@ const Body = ({ imageOpen, imageUploadUrl }) => (
         display: 'inline-block',
       }}
     >
-      <img
-        src={imageUploadUrl}
-        style={{
-          height: '48px',
-          width: 'auto' ,
-        }}
-      />
+      <label htmlFor="image-input">
+        <img
+          src={imageUploadUrl}
+          style={{
+            height: '48px',
+            width: 'auto' ,
+          }}
+        />
+      </label>
     </div>
   </div>
 );

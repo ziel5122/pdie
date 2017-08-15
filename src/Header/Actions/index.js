@@ -9,7 +9,7 @@ const mapStateToProps = ({ image }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setImageUpload(imageUploadUrl) {
+  setImageUploadUrl(imageUploadUrl) {
     dispatch({
       imageUploadUrl,
       type: 'SET_IMAGE_UPLOAD',

@@ -8,4 +8,13 @@ const mapStateToProps = ({ image: { imageOpen, imageUploadUrl } }) => ({
   imageUploadUrl,
 });
 
-export default connect(mapStateToProps)(Body);
+const mapDispatchToProps = (dispatch) => ({
+  setImageUploadUrl(imageUploadUrl) {
+    dispatch({
+      imageUploadUrl,
+      type: 'SET_IMAGE_UPLOAD',
+    });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Body);

@@ -7,27 +7,16 @@ import React from 'react';
 import Search from '../Search';
 import styles from './styles';
 
+const reader = new FileReader();
+
 let imageBackground;
 let imageColor;
 let imageHeight;
 
-let reader;
-
-const uploadImage = (e, setImage) => {
-  reader = new FileReader();
-  const file = e.target.files[0];
-
-  reader.onloadend = () => {
-    setImage(reader.result);
-  };
-
-  reader.readAsDataURL(file);
-};
-
 const HeaderCenter = ({
   imageOpen,
   imageUploadUrl,
-  setImageUpload,
+  setImageUploadUrl,
   toggleImage,
 }) => {
   if (imageOpen) {
@@ -40,7 +29,9 @@ const HeaderCenter = ({
     imageHeight = '40px';
   }
 
-  console.log(imageUploadUrl);
+  reader.onloadend = () => {
+    setImageUploadUrl(reader.result);
+  };
 
   return (
     <div style={styles.headerActions}>
@@ -72,7 +63,7 @@ const HeaderCenter = ({
         }
         <input
           id="image-input"
-          onChange={e => uploadImage(e, setImageUpload)}
+          onChange={e => reader.readAsDataURL(e.target.files[0])}
           style={{ display: 'none' }}
           type="file"
         />
