@@ -40,6 +40,8 @@ const HeaderCenter = ({
     imageHeight = '40px';
   }
 
+  console.log(imageUploadUrl);
+
   return (
     <div style={styles.headerActions}>
       <div style={{
@@ -47,26 +49,30 @@ const HeaderCenter = ({
           background: imageBackground,
           height: imageHeight,
       }}>
-        <label htmlFor="image-input">
-          <Photo
-            style={{
-              ...styles.imageButton,
-              color: imageColor,
-            }}
-          />
-        </label>
+        {
+          imageUploadUrl ? (
+            <Photo
+              onClick={() => toggleImage()}
+              style={{
+                ...styles.imageButton,
+                color: imageColor,
+              }}
+            />
+          ) : (
+            <label htmlFor="image-input">
+              <Photo
+                onClick={() => toggleImage()}
+                style={{
+                  ...styles.imageButton,
+                  color: imageColor,
+                }}
+              />
+            </label>
+          )
+        }
         <input
           id="image-input"
-          onChange={(e) => {
-            if (!imageUploadUrl) {
-              console.log(imageUploadUrl);
-              console.log(!imageUploadUrl);
-              console.log();
-              uploadImage(e, setImageUpload);
-              toggleImage();
-            }
-            else toggleImage();
-          }}
+          onChange={e => uploadImage(e, setImageUpload)}
           style={{ display: 'none' }}
           type="file"
         />
