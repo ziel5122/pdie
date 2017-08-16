@@ -1,17 +1,22 @@
+import firebase from 'firebase/app';
+import 'firebase/storage';
 import IconButton from 'material-ui/IconButton';
 import ActionSearch from 'material-ui/svg-icons/action/search';
 import Photo from 'material-ui/svg-icons/image/photo';
 import TextField from 'material-ui/TextField';
 import React from 'react';
 
+import config from '../../../config/firebase.js';
 import Search from '../Search';
 import styles from './styles';
-
-const reader = new FileReader();
 
 let imageBackground;
 let imageColor;
 let imageHeight;
+
+firebase.initializeApp(config);
+
+const ref = firebase.storage().ref('images/github.png');
 
 const HeaderCenter = ({
   imageOpen,
@@ -19,6 +24,8 @@ const HeaderCenter = ({
   setImageUploadUrl,
   toggleImage,
 }) => {
+  const reader = new FileReader();
+
   if (imageOpen) {
     imageBackground = 'darkgray';
     imageColor = 'white',
@@ -63,7 +70,10 @@ const HeaderCenter = ({
         }
         <input
           id="image-input"
-          onChange={e => reader.readAsDataURL(e.target.files[0])}
+          onChange={(e) => {
+            reader.readAsDataURL(e.target.files[0]);
+            ref.put(e.target.files[0]).then(snapshot => console.log('uploaded file'));
+          }}
           style={{ display: 'none' }}
           type="file"
         />

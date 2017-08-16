@@ -3,8 +3,6 @@ import React from 'react';
 
 import styles from './styles';
 
-const reader = new FileReader();
-
 const Body = ({ imageOpen, imageUploadUrl, setImageUploadUrl }) => (
   <div style={{
       ...styles.body,

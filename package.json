@@ -28,7 +28,10 @@
   },
   "homepage": "https://github.com/ziel5122/pdie#readme",
   "dependencies": {
+    "@google-cloud/storage": "^1.2.1",
     "express": "^4.15.3",
+    "firebase": "^4.2.0",
+    "google-cloud": "^0.56.0",
     "material-ui": "^0.18.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

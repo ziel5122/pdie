@@ -2,6 +2,9 @@ import Paper from 'material-ui/Paper';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import firebase from 'firebase/app';
+import 'firebase/storage';
+
 import Body from '../Body';
 import Gallery from '../Gallery/gallery';
 import Header from '../Header/header';
@@ -21,6 +24,7 @@ const App = ({ renderLocation }) => {
     serverColor = 'lightblue';
     zDepth = 1;
   }
+
   return (
     <div style={styles.app}>
       <div>
