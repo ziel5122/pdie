@@ -6,8 +6,8 @@ import firebase from 'firebase/app';
 import 'firebase/storage';
 
 import Body from '../Body';
-import Gallery from '../Gallery/gallery';
-import Header from '../Header/header';
+import Gallery from '../Gallery';
+import Header from '../Header';
 import styles from './styles';
 
 let clientColor;
