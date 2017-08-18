@@ -1,6 +1,11 @@
 const renderHtml = (appHtml, store) => (`
 <!doctype html>
-<style> body { margin: 0 } </style>
+<style>
+  body {
+    font-family: roboto, sans-serif;
+    margin: 0;
+  }
+</style>
 <meta charset="utf-8" />
 <meta name="author" content="Austin Zielinski">
 <meta name="description" content="Image object recognition and searchability with a focus on design">

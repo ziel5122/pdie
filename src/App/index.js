@@ -1,10 +1,26 @@
+import Paper from 'material-ui/Paper';
 import React from 'react';
-import { connect } from 'react-redux';
 
-import App from './app';
+import Body from '../Body';
+import Gallery from '../Gallery';
+import Header from '../Header';
+import RenderLocation from './RenderLocation';
+import styles from './styles';
 
-const mapStateToProps = ({ renderLocation }) => ({
-  renderLocation,
-});
+const App = () => (
+  <div style={styles.app}>
+    <span>This HTML was rendered on the </span>
+    <RenderLocation />
+    <Paper>
+      <Header />
+    </Paper>
+    <Paper>
+      <Body />
+    </Paper>
+    <Paper style={{ background: 'orange' }}>
+      <Gallery />
+    </Paper>
+  </div>
+);
 
-export default connect(mapStateToProps)(App);
+export default App;

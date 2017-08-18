@@ -16,8 +16,8 @@ import { renderHtml } from './ssr/render';
 
 const store = createStore(reducers);
 
-//const appHtml = renderToString(<Main store={store} />);
-const appHtml = '';
+const appHtml = renderToString(<Main store={store} />);
+//const appHtml = '';
 
 const html = renderHtml(appHtml, store);
 

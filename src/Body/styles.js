@@ -1,20 +1,19 @@
 const styles = {
-  body: {
-    background: 'darkgray',
-    marginTop: '16px',
-    padding: '16px',
-    textAlign: 'center',
-    verticalAlign: 'middle',
+  body(imageOpen) {
+    return {
+      background: 'darkgray',
+      display: imageOpen ? 'block' : 'none',
+      marginTop: '16px',
+      padding: '16px',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+    };
   },
-  uploadFrame: {
-    background: 'white',
-    border: '8px solid black',
-    margin: 'auto',
-    maxHeight: '480px',
-    maxWidth: '640px',
-    padding: '8px',
-  },
-  uploadedImage: {
+  imageUpload: {
+    cursor: 'hand',
+    cursor: 'pointer',
+    height: '48px',
+    width: 'auto',
   },
 };
 

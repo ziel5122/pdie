@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 const imageOpen = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_IMAGE':
+      console.log('triggered');
       return !state;
 
     case 'TOGGLE_NGINE':

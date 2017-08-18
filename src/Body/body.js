@@ -3,27 +3,11 @@ import React from 'react';
 
 import styles from './styles';
 
-const Body = ({ imageOpen, imageUploadUrl, setImageUploadUrl }) => (
-  <div style={{
-      ...styles.body,
-      display: imageOpen ? 'block' : 'none',
-    }}
-  >
-    <div style={{
-        background: 'white',
-        display: 'inline-block',
-      }}
-    >
-      <label htmlFor="image-input">
-        <img
-          src={imageUploadUrl}
-          style={{
-            height: '48px',
-            width: 'auto' ,
-          }}
-        />
-      </label>
-    </div>
+const Body = ({ imageOpen, imageUploadUrl }) => (
+  <div style={styles.body(imageOpen)}>
+    <label htmlFor="image-input">
+      <img src={imageUploadUrl} style={styles.imageUpload} />
+    </label>
   </div>
 );
 

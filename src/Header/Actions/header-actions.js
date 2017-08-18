@@ -24,7 +24,8 @@ const HeaderCenter = ({
   setImageUploadUrl,
   toggleImage,
 }) => {
-  const reader = new FileReader();
+  //let reader;
+  //if (typeof window !== undefined) reader = new FileReader();
 
   if (imageOpen) {
     imageBackground = 'darkgray';
@@ -35,11 +36,11 @@ const HeaderCenter = ({
     imageColor = 'darkgray',
     imageHeight = '40px';
   }
-
+/*
   reader.onloadend = () => {
     setImageUploadUrl(reader.result);
   };
-
+*/
   return (
     <div style={styles.headerActions}>
       <div style={{
@@ -72,7 +73,7 @@ const HeaderCenter = ({
           id="image-input"
           onChange={(e) => {
             reader.readAsDataURL(e.target.files[0]);
-            ref.put(e.target.files[0]).then(snapshot => console.log('uploaded file'));
+            //ref.put(e.target.files[0]).then(snapshot => console.log('uploaded file'));
           }}
           style={{ display: 'none' }}
           type="file"
