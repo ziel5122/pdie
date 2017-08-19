@@ -10,7 +10,6 @@ import styles from './styles';
 let imageBackground;
 let imageColor;
 let imageHeight;
-let reader;
 
 const HeaderCenter = ({
   imageOpen,
@@ -27,12 +26,6 @@ const HeaderCenter = ({
     imageColor = 'darkgray',
     imageHeight = '40px';
   }
-  if (typeof window !== 'undefined') {
-    reader = new FileReader();
-    reader.onloadend = () => {
-      setImageUploadUrl(reader.result);
-    };
-  }
 
   return (
     <div style={styles.headerActions}>
@@ -40,7 +33,8 @@ const HeaderCenter = ({
           ...styles.imageWrapper,
           background: imageBackground,
           height: imageHeight,
-      }}>
+        }}
+      >
       {
         imageUploadUrl ? (
           <Photo
@@ -62,14 +56,6 @@ const HeaderCenter = ({
           </label>
         )
       }
-      <input
-        id="image-input"
-        onChange={(e) => {
-          reader.readAsDataURL(e.target.files[0]);
-        }}
-        style={{ display: 'none' }}
-        type="file"
-      />
       </div>
       <Search />
     </div>
