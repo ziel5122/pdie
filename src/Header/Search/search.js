@@ -5,47 +5,40 @@ import React from 'react';
 
 import styles from './styles';
 
-let ngineBackground;
-let ngineColor;
+let ngineButtonColor;
+let ngineWrapperBackground;
+let searchDisplay;
 
-const HeaderSearch = ({
+const Search = ({
   ngineOpen,
   searchQuery,
   setSearchQuery,
   toggleNgine,
 }) => {
   if (ngineOpen) {
-    ngineBackground = 'gray';
-    ngineColor = 'white';
+    ngineButtonColor = 'white';
+    ngineWrapperBackground = 'gray';
+    searchDisplay = 'inline-block';
   } else {
-    ngineBackground = 'white';
-    ngineColor = 'gray';
+    ngineButtonColor = 'gray';
+    ngineWrapperBackground = 'white';
+    searchDisplay = 'none';
   }
 
   return (
     <div style={{
         ...styles.ngineWrapper,
-        background: ngineBackground,
+        background: ngineWrapperBackground,
       }}>
       <TextField
         id="search"
-        inputStyle={{
-          color: 'white',
-          fontSize: '21px',
-          height: '24px',
-          verticalAlign: 'top',
-        }}
+        inputStyle={styles.searchInput}
         onChange={({ target: { value } }) => setSearchQuery(value)}
         style={{
-          display: ngineOpen ? 'inline-block' : 'none',
-          height: '34px',
-          marginRight: '8px',
-          marginTop: '8px',
-          verticalAlign: 'top',
+          ...styles.search,
+          display: searchDisplay,
         }}
-        underlineFocusStyle={{
-          borderColor: 'orange',
-        }}
+        underlineFocusStyle={{ borderColor: 'orange' }}
         value={searchQuery}
       />
       <ActionSearch
@@ -54,14 +47,14 @@ const HeaderSearch = ({
         }}
         style={{
           ...styles.ngineButton,
-          color: ngineColor,
+          color: ngineButtonColor,
         }}
       />
       <ContentClear
         onTouchTap={() => setSearchQuery('')}
         style={{
           ...styles.ngineButton,
-          color: ngineColor,
+          color: ngineButtonColor,
           display: searchQuery === '' ? 'none' : 'inline-block',
         }}
       />
@@ -69,4 +62,4 @@ const HeaderSearch = ({
   );
 };
 
-export default HeaderSearch;
+export default Search;

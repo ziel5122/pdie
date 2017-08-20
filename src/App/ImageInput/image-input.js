@@ -2,7 +2,7 @@ import React from 'react';
 
 let reader;
 
-const ImageUpload = ({ setImageUploadUrl }) => {
+const ImageInput = ({ setImageUploadUrl }) => {
   if (typeof window !== 'undefined') {
     reader = new FileReader();
     reader.onload = () => setImageUploadUrl(reader.result);

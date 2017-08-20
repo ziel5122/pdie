@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 const imageOpen = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_IMAGE':
-      console.log('triggered');
       return !state;
 
     case 'TOGGLE_NGINE':
@@ -16,7 +15,7 @@ const imageOpen = (state = false, action) => {
 
 const imageUploadUrl = (state = '', action) => {
   switch (action.type) {
-    case 'SET_IMAGE_UPLOAD':
+    case 'SET_IMAGE_UPLOAD_URL':
       return action.imageUploadUrl;
 
     default:

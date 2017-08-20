@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import HeaderActions from './header-actions';
+import Actions from './actions';
 
 const mapStateToProps = ({ image }) => ({
   imageOpen: image.imageOpen,
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
   setImageUploadUrl(imageUploadUrl) {
     dispatch({
       imageUploadUrl,
-      type: 'SET_IMAGE_UPLOAD',
+      type: 'SET_IMAGE_UPLOAD_URL',
     });
   },
 
@@ -29,4 +29,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderActions);
+export default connect(mapStateToProps, mapDispatchToProps)(Actions);

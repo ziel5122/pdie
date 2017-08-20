@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import HeaderSearch from './header-search';
+import Search from './search';
 
 const mapStateToProps = ({ ngine }) => ({
   ngineOpen: ngine.ngineOpen,
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

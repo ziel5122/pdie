@@ -11,7 +11,7 @@ const actionWrapper_ = {
 };
 
 const styles = {
-  headerActions: {
+  actions: {
     display: 'flex',
     flex: 2,
     paddingLeft: '8px',
