@@ -1,11 +1,18 @@
 import React from 'react';
 
+import { gcv } from '../../backend/gcp';
+
 let reader;
 
 const ImageInput = ({ setImageUploadUrl }) => {
+  console.log('this updated');
+
   if (typeof window !== 'undefined') {
     reader = new FileReader();
-    reader.onload = () => setImageUploadUrl(reader.result);
+    reader.onload = () => {
+      const { result } = reader;
+      setImageUploadUrl(result);
+    }
   }
 
   return (

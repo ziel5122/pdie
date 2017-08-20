@@ -28,6 +28,12 @@ const config = {
       },
     ],
   },
+  node: {
+    child_process: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+  },
   output: {
     path: join(__dirname, 'build'),
     filename: '[name].bundle.js',
