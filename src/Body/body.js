@@ -3,10 +3,16 @@ import React from 'react';
 
 import styles from './styles';
 
-const Body = ({ imageOpen, imageUploadUrl }) => (
+
+
+const Body = ({ imageLabels, imageOpen, imageUrl }) => (
   <div style={styles.body(imageOpen)}>
     <label htmlFor="image-input">
-      <img src={imageUploadUrl} style={styles.imageUpload} />
+      <img src={imageUrl} style={styles.imageUpload} />
+      <div style={{ display: 'inline-block' }}>
+        {imageLabels.map(({ description, score }) => (`${description}: ${score}
+          `))}
+      </div>
     </label>
   </div>
 );

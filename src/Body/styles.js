@@ -12,7 +12,8 @@ const styles = {
   imageUpload: {
     cursor: 'hand',
     cursor: 'pointer',
-    height: '48px',
+    display: 'inline-block',
+    height: '480px',
     width: 'auto',
   },
 };

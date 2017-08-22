@@ -1,5 +1,15 @@
 import { combineReducers } from 'redux';
 
+const imageLabels = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_IMAGE_LABELS':
+      return action.imageLabels;
+
+    default:
+      return state;
+  }
+};
+
 const imageOpen = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_IMAGE':
@@ -13,10 +23,10 @@ const imageOpen = (state = false, action) => {
   }
 };
 
-const imageUploadUrl = (state = '', action) => {
+const imageUrl = (state = '', action) => {
   switch (action.type) {
-    case 'SET_IMAGE_UPLOAD_URL':
-      return action.imageUploadUrl;
+    case 'SET_IMAGE_URL':
+      return action.imageUrl;
 
     default:
       return state;
@@ -24,6 +34,7 @@ const imageUploadUrl = (state = '', action) => {
 };
 
 export default combineReducers({
+  imageLabels,
   imageOpen,
-  imageUploadUrl,
+  imageUrl,
 });

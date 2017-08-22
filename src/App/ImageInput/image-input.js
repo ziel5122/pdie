@@ -6,24 +6,23 @@ const labelUrl = `https://vision.googleapis.com/v1/images:annotate?key=${config.
 
 let reader;
 
-const ImageInput = ({ setImageUploadUrl }) => {
+const ImageInput = ({ setImageUrl, setImageLabels }) => {
   if (typeof window !== 'undefined') {
     reader = new FileReader();
     reader.onload = () => {
       const { result } = reader;
-      setImageUploadUrl(result);
+      setImageUrl(result);
 
       const request = {
         requests: [
           {
             image: {
-              source: {
-                imageUri: result,
-              },
+              content: result.substr(result.indexOf(',') + 1),
             },
             features: [
               {
                 type: 'LABEL_DETECTION',
+                maxResults: 10,
               },
             ],
           },
@@ -33,13 +32,17 @@ const ImageInput = ({ setImageUploadUrl }) => {
       fetch(labelUrl, {
         method: 'post',
         headers: new Headers({
-          'content-type': 'application/json',
+          'Content-Type': 'application/json',
         }),
-        body: request,
+        body: JSON.stringify(request),
       }).then((response) => {
-        return response.json();
-      }).then(responseJson => console.log(responseJson.labelAnnotations));
-    }
+        response.json().then((json) => {
+          const labels = json.responses[0].labelAnnotations
+            .map(({ description, score }) => ({ description, score }));
+          setImageLabels(labels);
+        });
+      }).catch(err => console.error(err));
+    };
   }
 
   return (

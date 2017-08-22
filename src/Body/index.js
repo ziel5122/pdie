@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import Body from './body';
 
-const mapStateToProps = ({ image: { imageOpen, imageUploadUrl } }) => ({
+const mapStateToProps = ({ image: { imageLabels, imageOpen, imageUrl } }) => ({
+  imageLabels,
   imageOpen,
-  imageUploadUrl,
+  imageUrl,
 });
 
 export default connect(mapStateToProps)(Body);

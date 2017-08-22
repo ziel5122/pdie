@@ -4,10 +4,17 @@ import { connect } from 'react-redux';
 import ImageInput from './image-input';
 
 const mapDispatchToProps = (dispatch) => ({
-  setImageUploadUrl(imageUploadUrl) {
+  setImageLabels(imageLabels) {
     dispatch({
-      imageUploadUrl,
-      type: 'SET_IMAGE_UPLOAD_URL',
+      imageLabels,
+      type: 'SET_IMAGE_LABELS',
+    });
+  },
+
+  setImageUrl(imageUrl) {
+    dispatch({
+      imageUrl,
+      type: 'SET_IMAGE_URL',
     });
   },
 });
